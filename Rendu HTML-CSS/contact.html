@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>La fleur and co</title>
-	<meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Food kingdom</title>
 
 	<link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
 
 </head>
 
@@ -14,7 +18,7 @@
 	<header>
 		<img id="logo" name="logo" src="img/accueil.jpg" />
 		<div id="titre" name="titre">
-			<h1>Soci&eacute;t&eacute; Lafleur</h1>
+			<h1>CY Eat</h1>
 			<!-- Menu horizontal -->
 			<ul id="menu_horizontal">
 				<li><a href="index.html">Accueil</a></li>
@@ -44,76 +48,49 @@
 		<br>
 		<h1>Demande de contact</h1>
 
-		<form method=post action="mailto:lafleur@lafleur.com">
-			<table id="formcontact" align="center" border=0>
-				<tr>
-					<td>Date du contact</td>
-					<td>
-						<input type="date" id="dateContact" name="dateContact" placeholder="dd-MM-yyyy">
-					</td>
-				</tr>
-				<tr>
-					<td>Nom</td>
-					<td>
-						<input type="text" id="nom" name="nom" size="50" placeholder="Entrez votre nom" pattern="[A-Za-zÀ-ÿ ]+">
-					</td>
-				</tr>
-				<tr>
-					<td>Pr&eacute;nom</td>
-					<td>
-						<input type="text" id="prenom" name="prenom" size="50" placeholder="Entrez votre pr&eacute;nom" pattern="[A-Za-zÀ-ÿ ]+">
-					</td>
-				</tr>
-				<tr>
-					<td>Email</td>
-					<td>
-						<input type="email" id="email" name="email" size="50" placeholder="monmail@monsite.org">
-					</td>
-				</tr>
-				<tr>
-					<td>Genre</td>
-					<td>
-						<input type="radio" name="sexe" value="F"> <label for="sexe">Femme</label>
-						<input type="radio" name="sexe" value="M"> <label for="sexe">Homme</label>
-					</td>
-				</tr>
-				<tr>
-					<td>Date de Naissance</td>
-					<td>
-						<input type="date" id="dateNais" name="dateNais" placeholder="dd-MM-yyyy">
-					</td>
-				</tr>
-				<tr>
-					<td>Fonction</td>
-					<td>
-						<select name="metier" required>
-							<option value="enseignant">Enseignant</option>
-							<option value="etudiant">Etudiant</option>
-							<option value="ingenieur">Ing&eacute;nieur</option>
-							<option value="retraite">Retrait&eacute;</option>
-							<option value="autre">Autre</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Sujet :</td>
-					<td>
-						<input type="text" id="sujet" name="sujet" size="50" placeholder="Entrez le sujet de votre mail">
-					</td>
-				</tr>
-				<tr>
-					<td>Contenu : </td>
-					<td>
-						<textarea rows="4" cols="80" id="contenu" name="contenu" maxlength="140" placeholder="Tapez ici votre mail"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td colspan=2 align="right">
-						<br>
-						<input id="envoyer" name="envoyer" class="bouton" type="submit" value="Envoyer">
-					</td>
-				</tr>
-		</table>
+		<form method=get action="mailto:info@info.com" enctype="text/plain">
+			<label for="nom">Nom :</label><br>
+			<input type="text" id="nom"><br>
+			<label for="pnom">Prénom :</label><br>
+			<input type="text" id="pnom"><br>
+			<label for="email">Adresse Mail:</label><br>
+			<input type="email" id="email"><br>
+			<label for="genre">Genre :</label><br>
+			<input type="radio" id="homme" name="genre" value="homme">
+			<label for="homme">Homme</label><br>
+  			<input type="radio" id="femme" name="genre" value="femme">
+			<label for="femme">Femme</label><br>
+			<input type="radio" id="autre" name="genre" value="autre">
+			<label for="autre">Autre</label><br>
+			<label for="activité"> Secteur d'activité:</label>
+			<select id="Activité" name="activité">
+				<option disabled selected>Selectionnez un secteur d'activité</option>
+				<option value="Agriculture">Agriculture</option>
+				<option value="Agroalimentaire-Alimentation">Agroalimentaire-Alimentation</option>
+				<option value="Animaux">Animaux</option>
+				<option value="Architecture-Aménagement Intérieur">Architecture-Aménagement Intérieur</option>
+				<option value="Bâtiment - Travaux Publics">Bâtiment - Travaux Publics</option>
+				<option value="Biologie - Chimie">Biologie - Chimie</option>
+				<option value="Culture - Spectacle">Culture - Spectacle</option>
+				<option value="Défense - Sécurité - Secours">Défense - Sécurité - Secours</option>
+				<option value="Informatique - Electronique">Informatique - Electronique</option>
+				<option value="Enseignement - Formation">Enseignement - Formation</option>
+				<option value="Hôtellerie - Restauration - Tourisme">Hôtellerie - Restauration - Tourisme</option>
+				<option value="Humanitaire">Humanitaire</option>
+				<option value="Mécanique - Maintenance">Mécanique - Maintenance</option>
+				<option value="Numérique - Multimédia - Audiovisuel">Numérique - Multimédia - Audiovisuel</option>
+				<option value="Secrétariat - Accueil">Secrétariat - Accueil</option>
+				<option value="Social - Services à la personne">Social - Services à la personne</option>
+				<option value="Transport - Logistique">Transport - Logistique</option>
+				<option value="Autre Secteur">Autre Secteur</option>
+			</select><br>
+			<label for="dateNaissance">Date de naissance : </label>
+			<input type="date" id="dateNaissance" name="dateNaissance" min="1900-01-01"><br>
+			<label for="sujet">Sujet:</label>
+			<input type="text" id="sujet" name="sujet"> <br>
+			<label for="contenu">Contenu:</label><br>
+			<textarea name="contenu" rows="2O" cols="30"></textarea>
+			<input type="submit" name="submit" value="Send" />	
 		</form>
 	</aside>
 	<!-- Pied de page -->
