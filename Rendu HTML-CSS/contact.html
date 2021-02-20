@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>La fleur and co</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<div id="main" name="main">
+	<!-- Entete -->
+	<header>
+		<img id="logo" name="logo" src="img/accueil.jpg" />
+		<div id="titre" name="titre">
+			<h1>Soci&eacute;t&eacute; Lafleur</h1>
+			<!-- Menu horizontal -->
+			<ul id="menu_horizontal">
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="bulbes.html">Bulbes</a></li>
+				<li><a href="rosiers.html">Rosiers</a></li>
+				<li><a href="massifs.html">Plantes &agrave; massif</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+	</header>
+	<!-- Menu vertical -->
+	<section>
+		<br>
+		<h2>St&eacute; Lafleur</h2>
+		<p /><a href="index.html">Accueil</a>
+		<hr />
+		<p><u><b>Nos produits</b></u></p>
+		<ul style="list-style-type:none;">
+			<li><a href="bulbes.html">Bulbes</a></li>
+			<li><a href="rosiers.html">Rosiers</a></li>
+			<li><a href="massifs.html">Plantes &agrave; massif</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+	</section>
+	<!-- Partie principale -->
+	<aside>
+		<br>
+		<h1>Demande de contact</h1>
+
+		<form method=post action="mailto:lafleur@lafleur.com">
+			<table id="formcontact" align="center" border=0>
+				<tr>
+					<td>Date du contact</td>
+					<td>
+						<input type="date" id="dateContact" name="dateContact" placeholder="dd-MM-yyyy">
+					</td>
+				</tr>
+				<tr>
+					<td>Nom</td>
+					<td>
+						<input type="text" id="nom" name="nom" size="50" placeholder="Entrez votre nom" pattern="[A-Za-zÀ-ÿ ]+">
+					</td>
+				</tr>
+				<tr>
+					<td>Pr&eacute;nom</td>
+					<td>
+						<input type="text" id="prenom" name="prenom" size="50" placeholder="Entrez votre pr&eacute;nom" pattern="[A-Za-zÀ-ÿ ]+">
+					</td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>
+						<input type="email" id="email" name="email" size="50" placeholder="monmail@monsite.org">
+					</td>
+				</tr>
+				<tr>
+					<td>Genre</td>
+					<td>
+						<input type="radio" name="sexe" value="F"> <label for="sexe">Femme</label>
+						<input type="radio" name="sexe" value="M"> <label for="sexe">Homme</label>
+					</td>
+				</tr>
+				<tr>
+					<td>Date de Naissance</td>
+					<td>
+						<input type="date" id="dateNais" name="dateNais" placeholder="dd-MM-yyyy">
+					</td>
+				</tr>
+				<tr>
+					<td>Fonction</td>
+					<td>
+						<select name="metier" required>
+							<option value="enseignant">Enseignant</option>
+							<option value="etudiant">Etudiant</option>
+							<option value="ingenieur">Ing&eacute;nieur</option>
+							<option value="retraite">Retrait&eacute;</option>
+							<option value="autre">Autre</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Sujet :</td>
+					<td>
+						<input type="text" id="sujet" name="sujet" size="50" placeholder="Entrez le sujet de votre mail">
+					</td>
+				</tr>
+				<tr>
+					<td>Contenu : </td>
+					<td>
+						<textarea rows="4" cols="80" id="contenu" name="contenu" maxlength="140" placeholder="Tapez ici votre mail"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2 align="right">
+						<br>
+						<input id="envoyer" name="envoyer" class="bouton" type="submit" value="Envoyer">
+					</td>
+				</tr>
+		</table>
+		</form>
+	</aside>
+	<!-- Pied de page -->
+	<footer>
+		<br>
+		<p>Copyright Soci&eacute;t&eacute; Lafleur</p>
+		<p>Webmaster CY Tech</p>
+	</footer>
+</div>
+
+</html>
