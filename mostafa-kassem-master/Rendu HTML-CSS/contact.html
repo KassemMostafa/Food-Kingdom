@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Food kingdom</title>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+<!-- Entete       Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
+<header>
+	<nav class="nav navbar-expand-lg navbar-dark bg-dark ">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="Index.html"><img id="logo" class=" d.inline-block align-middle" alt="logo" name="logo" src="img/cuteBurger.png" height="40"/>
+			Food Kingdom</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+			<ul class="navbar-nav justify-content-center">
+			  <li class="nav-item">
+				<a class="nav-link" href="Index.html">Accueil</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="burger.html">Burger</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="poulet.html">Poulet</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="pizza.html">Pizza</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+</header>
+
+<body>
+    <!-- Menu vertical -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col bg-info text-light">
+                <section>
+
+                    <br>
+                    <h2>St&eacute; Lafleur</h2>
+                    <p /><a href="index.html">Accueil</a>
+                    <hr />
+                    <p><u><b>Nos produits</b></u></p>
+                    <ul style="list-style-type:none;">
+                        <li><a href="bulbes.html">Bulbes</a></li>
+                        <li><a href="rosiers.html">Rosiers</a></li>
+                        <li><a href="massifs.html">Plantes &agrave; massif</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </section>
+            </div>
+            <!-- Partie principale -->
+            <div class="col-sm-9 bg-warning text-light">
+                <aside>
+                    <br>
+                    <h1>Demande de contact</h1>
+                    <form method=get action="mailto:info@info.com" enctype="text/plain">
+                        <label for="nom">Nom :</label><br>
+                        <input type="text" id="nom"><br>
+                        <label for="pnom">Prénom :</label><br>
+                        <input type="text" id="pnom"><br>
+                        <label for="email">Adresse Mail:</label><br>
+                        <input type="email" id="email"><br>
+                        <label for="genre">Genre :</label><br>
+                        <input type="radio" id="homme" name="genre" value="homme">
+                        <label for="homme">Homme</label><br>
+                        <input type="radio" id="femme" name="genre" value="femme">
+                        <label for="femme">Femme</label><br>
+                        <input type="radio" id="autre" name="genre" value="autre">
+                        <label for="autre">Autre</label><br>
+                        <label for="activité"> Secteur d'activité:</label>
+                        <select id="Activité" name="activité">
+                            <option disabled selected>Selectionnez un secteur d'activité</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Agroalimentaire-Alimentation">Agroalimentaire-Alimentation</option>
+                            <option value="Animaux">Animaux</option>
+                            <option value="Architecture-Aménagement Intérieur">Architecture-Aménagement Intérieur</option>
+                            <option value="Bâtiment - Travaux Publics">Bâtiment - Travaux Publics</option>
+                            <option value="Biologie - Chimie">Biologie - Chimie</option>
+                            <option value="Culture - Spectacle">Culture - Spectacle</option>
+                            <option value="Défense - Sécurité - Secours">Défense - Sécurité - Secours</option>
+                            <option value="Informatique - Electronique">Informatique - Electronique</option>
+                            <option value="Enseignement - Formation">Enseignement - Formation</option>
+                            <option value="Hôtellerie - Restauration - Tourisme">Hôtellerie - Restauration - Tourisme</option>
+                            <option value="Humanitaire">Humanitaire</option>
+                            <option value="Mécanique - Maintenance">Mécanique - Maintenance</option>
+                            <option value="Numérique - Multimédia - Audiovisuel">Numérique - Multimédia - Audiovisuel</option>
+                            <option value="Secrétariat - Accueil">Secrétariat - Accueil</option>
+                            <option value="Social - Services à la personne">Social - Services à la personne</option>
+                            <option value="Transport - Logistique">Transport - Logistique</option>
+                            <option value="Autre Secteur">Autre Secteur</option>
+                        </select><br>
+                        <label for="dateNaissance">Date de naissance : </label>
+                        <input type="date" id="dateNaissance" name="dateNaissance" min="1900-01-01"><br>
+                        <label for="sujet">Sujet:</label>
+                        <input type="text" id="sujet" name="sujet"> <br>
+                        <label for="contenu">Contenu:</label><br>
+                        <textarea name="contenu" rows="2O" cols="30"></textarea>
+                        <input type="submit" name="submit" value="Send" />
+                    </form>
+                </aside>
+                </div>
+            </div>
+        </div>
+</body>
+<!-- Pied de page -->
+<footer>
+    <div class="text-center">
+        <p>@Copyright Société CyTech</p>
+    </div>
+</footer>
+
+
+</html>
