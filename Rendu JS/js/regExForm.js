@@ -2,7 +2,8 @@
 
 let form = document.querySelector('#formulaire');
 
-console.log(form.nom);
+//console.log(form.nom);
+//console.log(form.dateNaissance.);
 
 form.nom.addEventListener('change', function () {
     validnom(this);
@@ -12,10 +13,9 @@ form.pnom.addEventListener('change', function () {
     validpnom(this);
 }
 );
-form.dateNaissance.addEventListener('change', function () {
-    verifDate(this);
-}
-);
+
+
+
 /*
 form.email.addEventListener('change', function () {
     validemail(this);
@@ -74,22 +74,24 @@ const validemail = function (input) {
     console.log(test);
 };*/
 
-/*
-const verifDate = function (var){
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd;
+
+const verifDate = function (){
+    let ajd = new Date();
+    let jour = ajd.getDate();
+    let mois = ajd.getMonth() + 1; //January is 0!
+    let annnee = ajd.getFullYear();
+    if (jour < 10) {
+        jour = '0' + jour;
     }
-    if (mm < 10) {
-        mm = '0' + mm;
+    if (mois < 10) {
+        mois = '0' + mois;
     }
-    today = yyyy + '-' + mm + '-' + dd;
-document.getElementById("dateNaissance").setAttribute("max", today);
+    ajd = yyyy + '-' + mois + '-' + jour;
+    //document.getElementById("dateNaissance").setAttribute("max", today);
+    form.dateNaissance.setAttribute("max", ajd);
 };
-*/
+
+verifDate();
 
 /*let nom = document.getElementById('nom').value;
 console.log(nom);
