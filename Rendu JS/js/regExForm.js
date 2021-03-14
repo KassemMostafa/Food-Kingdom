@@ -22,7 +22,7 @@ const validnom = function (input) {
     }
     else {
         form.nom.style.borderColor = "red";
-        small.innerHTML = "<br>Votre prenom doit commencer par une majuscule et comporter ensuite une minuscule et ne peut contenir de caractere spetiaux";
+        small.innerHTML = "<br>Votre nom doit commencer par une majuscule et comporter ensuite une minuscule et ne peut contenir de caractères spéciaux";
     }
     console.log(test);
 };
@@ -37,7 +37,7 @@ const validpnom = function (input) {
     }
     else {
         form.pnom.style.borderColor = "red";
-        small.innerHTML = "<br>Votre prenom doit commencer par une majuscule et comporter ensuite une minuscule et ne peut contenir de caractere spetiaux";
+        small.innerHTML = "<br>Votre prenom doit commencer par une majuscule et comporter ensuite une minuscule et ne peut contenir de caractères spéciaux";
     }
     console.log(test);
 };
