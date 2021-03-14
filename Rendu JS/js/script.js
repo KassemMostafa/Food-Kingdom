@@ -1,7 +1,6 @@
 "use strict";
-function affichageStock() 
-{
-    var stock, i;
+function affichageStock() {
+    let stock, i;
 
     stock = document.getElementsByClassName("stock");
     if (document.getElementById("stock-button").value == 'stock-cache') {                 
@@ -21,3 +20,33 @@ function affichageStock()
         
     }
 }
+
+function up(divID,button) {
+    let x = document.querySelector('#' + divID); //div correspondant au produit 
+    let max = x.getElementsByClassName("stock-quantity")[0].innerHTML; //stock
+
+    if (x.getElementsByClassName("decrease")[0].disabled = true) {
+        x.getElementsByClassName("decrease")[0].disabled = false;
+    }
+
+    x.getElementsByClassName("num")[0].value = parseInt(x.getElementsByClassName("num")[0].value) + 1;
+    if (x.getElementsByClassName("num")[0].value >= parseInt(max)) {
+        document.getElementsByClassName("num")[0].value = max;
+        button.disabled = true;
+    }
+}
+
+function down(divID,button) {
+
+    let x = document.querySelector("#"+ divID);
+    
+    if (x.getElementsByClassName("increase")[0].disabled = true) {
+        x.getElementsByClassName("increase")[0].disabled = false;
+    }
+    x.getElementsByClassName("num")[0].value = parseInt(x.getElementsByClassName("num")[0].value) - 1;
+    if (x.getElementsByClassName("num")[0].value <= 0) {
+        document.getElementsByClassName("num")[0].value = 0;
+        button.disabled = true;
+    }
+}
+
