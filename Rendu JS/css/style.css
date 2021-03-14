@@ -45,3 +45,14 @@ footer{
 .button-add-cart{
     margin-top: 6px;
 }
+.zoom {
+    padding: 25px;
+    transition: transform 0.5s;
+    width: 286px;
+    height: 230px;
+    
+  }
+  
+.zoom:hover {
+    transform: scale(1.3);
+  }
