@@ -9,38 +9,40 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-
 </head>
 <!-- Entete       Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
 <header>
-	<nav class="nav navbar-expand-lg navbar-dark bg-dark ">
-		<div class="container-fluid">
-		  <a class="navbar-brand" href="Index.html"><img id="logo" class=" d.inline-block align-middle" alt="logo" name="logo" src="img/cuteBurger.png" height="40"/>
-			Food Kingdom</a>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-			<ul class="navbar-nav justify-content-center">
-			  <li class="nav-item">
-				<a class="nav-link" href="Index.html">Accueil</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="burger.html">Burger</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="poulet.html">Poulet</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="pizza.html">Pizza</a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
-			  </li>
-			</ul>
-		  </div>
-		</div>
-	  </nav>
+    
+    <nav class="nav navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Index.html">
+                <img id="logo" class=" d.inline-block align-middle" alt="logo" name="logo" src="img/cuteBurger.png" height="40" />
+                Food Kingdom
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="burger.html">Burger</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="poulet.html">Poulet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pizza.html">Pizza</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 
 <body>
@@ -67,13 +69,17 @@
                 <aside class="text-center">
                     <br>
                     <h1>Demande de contact</h1>
-                    <form method=get action="mailto:info@info.com" enctype="text/plain">
+                    <form method=get action="mailto:info@info.com" enctype="text/plain" id="formulaire">
                         <label for="nom">Nom :</label><br>
-                        <input type="text" id="nom"><br>
+                        <input type="text" id="nom">
+                        <small class="text-danger"></small><br>
+                        
                         <label for="pnom">Prénom :</label><br>
-                        <input type="text" id="pnom"><br>
+                        <input type="text" id="pnom">
+                        <small class="text-danger"></small><br>
+                        
                         <label for="email">Adresse Mail:</label><br>
-                        <input type="email" id="email"><br>
+                        <input type="email" id="email" required><br>
                         <label for="genre">Genre :</label><br>
                         <div class="container">
                             <div class="row align-self-center">
@@ -86,7 +92,7 @@
                             </div>
                         </div>
                         <label for="activité"> Secteur d'activité:</label> <br>
-                        <select id="Activité" name="activité">
+                        <select id="Activité" name="activité" required>
                             <option disabled selected>Selectionnez un secteur d'activité</option>
                             <option value="Agriculture">Agriculture</option>
                             <option value="Agroalimentaire-Alimentation">Agroalimentaire-Alimentation</option>
@@ -110,18 +116,21 @@
                         <label for="dateNaissance">Date de naissance : </label> <br>
                         <input type="date" id="dateNaissance" name="dateNaissance" min="1900-01-01"><br>
                         <label for="sujet">Sujet:</label> <br>
-                        <input type="text" id="sujet" name="sujet"> <br>
+                        <input type="text" id="sujet" name="sujet" required> <br>
                         <label for="contenu">Contenu:</label><br>
-                        <textarea name="contenu" rows="10" cols="40"></textarea><br>
+                        <textarea name="contenu" rows="10" cols="40" required></textarea><br>
                         <input type="submit" name="submit" value="Send" />
                     </form>
                 </aside>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="js/regExForm.js" async></script>
 </body>
 <!-- Pied de page -->
 <footer>
+
     <div class="text-center ">
         <strong>FOOD KINGDOM®</strong> par Mostafa KASSEM et Tomy PHALYVONG. Le code source est protégé par la license
         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. Le contenu est licenié <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC PAR NC SA 4.0</a>.
