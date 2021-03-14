@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js/script.js"></script>
 
 </head>
 <!-- Entete       Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
@@ -75,7 +76,7 @@
 						  <p class="card-text">Pain spécial, steak haché, oignon, cornichon avec une sauce moutarde et ketchup.</p>
 						</div>
 						<div class="card-body">
-						  <p>3,00€</p>
+						  <p>3,00€<span class= "stock">Stock : 143</span></p>
 						</div>
 					  </div>
 				</div>
@@ -87,7 +88,7 @@
 						  <p class="card-text">Pain spécial, steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu.</p>
 						</div>
 						<div class="card-body">
-						  <p>3,50€</p>
+						  <p>3,50€<span class="stock">Stock : 242</span></p>
 						</div>
 					  </div>
 				</div>
@@ -99,7 +100,7 @@
 						  <p class="card-text">Pain spécial, double steak haché, oignon, cornichon, moutarde, ketchup, 	fromage fondu, bacon.</p>
 						</div>
 						<div class="card-body">
-						  <p>5,00€</p>
+						  <p>5,00€<span class="stock">Stock : 223</span></p>
 						</div>
 					  </div>
 				</div>
@@ -111,7 +112,7 @@
 						  <p class="card-text">Pain spécial, double steak haché, oignon, cornichon,fromage fondu, sauce bbq.</p>
 						</div>
 						<div class="card-body">
-						  <p>4,75€</p>
+						  <p>4,75€<span class="stock">Stock : 312</span></p>
 						</div>
 					  </div>
 				</div>
@@ -123,12 +124,13 @@
 						  <p class="card-text">Pain spécial, double steak haché, oignon, cornichon, double fromage fondu</p>
 						</div>
 						<div class="card-body">
-						  <p>4,50€</p>
+						  <p>4,50€<span class="stock">Stock : 258 </span></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<button type="button" class="btn btn-dark button-stock" value="stock-cache" id="stock-button" onclick="affichageStock(this.id)">Afficher Stock</button>
 	</aside>
 </div>
 	<!-- Pied de page -->

@@ -6,7 +6,7 @@ function affichageStock()
     stock = document.getElementsByClassName("stock");
     if (document.getElementById("stock-button").value == 'stock-cache') {                 
         for (i = 0; i < stock.length; i++) {
-            stock[i].style.display = "inline";
+            stock[i].style.display = "inline-block";
             stock[i].style.textAlign = "right";
         }
         document.getElementById("stock-button").innerHTML="Cacher Stock";
