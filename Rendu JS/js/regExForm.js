@@ -13,9 +13,22 @@ form.pnom.addEventListener('change', function () {
     validpnom(this);
 }
 );
+form.dateNaissance.addEventListener('change', function () {
+    let auj = new Date();
+    let jour = today.getDate();
+    let mois = today.getMonth() + 1;
+    let annee = today.getyear();
 
-
-
+    if (jour < 10) {
+        jour = '0' + jour;
+    }
+    if (mois < 10) {
+        mois = '0' + mois;
+    }
+    auj = annee + '-' + mois + '-' + jour;
+    form.date.setAttribute("max", auj);
+}
+);
 /*
 form.email.addEventListener('change', function () {
     validemail(this);
@@ -25,7 +38,7 @@ form.email.addEventListener('change', function () {
 //form.nom.
 
 const validnom = function (input) {
-    let nomRegExp = new RegExp("^[A-Z][A-Za-z\é\è\ê\-]+$", "g");
+    let nomRegExp = new RegExp("^[A-Z][A-Za-z\ï¿½\ï¿½\ï¿½\-]+$", "g");
     let test = nomRegExp.test(input.value);
     let small = input.nextElementSibling;
     if (test) {
@@ -42,7 +55,7 @@ const validnom = function (input) {
 };
 
 const validpnom = function (input) {
-    let nomRegExp = new RegExp("^[A-Z][A-Za-z\é\è\ê\-]+$", "g");
+    let nomRegExp = new RegExp("^[A-Z][A-Za-z\ï¿½\ï¿½\ï¿½\-]+$", "g");
     let test = nomRegExp.test(input.value);
     let small = input.nextElementSibling;
     if (test) {
@@ -58,7 +71,7 @@ const validpnom = function (input) {
 
 /*
 const validemail = function (input) {
-    let nomRegExp = new RegExp("^[A-Z][A-Za-z\é\è\ê\-]+$", "g");
+    let nomRegExp = new RegExp("^[A-Z][A-Za-z\ï¿½\ï¿½\ï¿½\-]+$", "g");
     let test = nomRegExp.test(input.value);
     let small = input.nextElementSibling;
     if (test) {
