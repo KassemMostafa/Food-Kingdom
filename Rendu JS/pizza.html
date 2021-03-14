@@ -69,66 +69,88 @@
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="col col-md-auto">
-                            <div class="card bg-dark text-light card" style="width: 18rem;">
+                            <div class="card bg-dark text-light card" id="Campione" style="width: 18rem;">
                                 <img src="img/Campione.png" width="286" height="230" class="card-img-top" alt="Campione">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Campione</h5>
                                     <p class="card-text">Sauce tomate,fromage,œuf, viande, champignons, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>11,60€<span class="stock">Stock : 68</span></p>
-                                    
-                                </div>
+                                    <p>11,60€<span class="stock">Stock : <span class ="stock-quantity" >168</span></span></p> 
+                                    <p>Quantité:</p>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('Campione',this)">-</button>
+                                    <input type="text" class="num" value="0" size="1" readonly />
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('Campione',this)">+</button><br>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-add-cart  ">Ajouter au panier</button>
+                                </div>  
                             </div>
                         </div>
                         <div class="col col-md-auto">
-                            <div class="card bg-dark text-light" style="width: 18rem;">
+                            <div class="card bg-dark text-light" id ="fruttidemare" style="width: 18rem;">
                                 <img src="img/fruttidemare.png" width="286" height="230" class="card-img-top" alt="fruttidemare">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Frutti Di Mare</h5>
                                     <p class="card-text">Sauce tomate, fromage, fruits de mer, ail et persil, pâte au choix. </p>
                                 </div>
                                 <div class="card-body">
-                                    <p>18,50€<span class="stock">Stock : 59</span></p>
-                                    
+                                    <p>18,50€<span class="stock"> Stock : <span class ="stock-quantity" >159</span></span></p>  
+                                    <p>Quantité:</p>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('fruttidemare',this)">-</button>
+                                    <input type="text" class="num" value="0" size="1" readonly />
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('fruttidemare',this)">+</button><br>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-add-cart ">Ajouter au panier</button>  
                                 </div>
                             </div>
                         </div>
                         <div class="col col-md-auto">
-                            <div class="card bg-dark text-light" style="width: 18rem;">
+                            <div class="card bg-dark text-light" id="Raclette" style="width: 18rem;">
                                 <img src="img/Raclette.png" width="286" height="230" class="card-img-top" alt="Raclette">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Raclette</h5>
                                     <p class="card-text">Sauce tomate, Raclette, pomme de terre, poulet, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>14,00€<span class="stock">Stock : 43</span></p>
+                                    <p>14,00€<span class="stock">Stock : <span class ="stock-quantity" >143</span></span></p>
+                                    <p>Quantité:</p>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('Raclette',this)">-</button>
+                                    <input type="text" class="num" value="0" size="1" readonly />
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('Raclette',this)">+</button><br>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-add-cart ">Ajouter au panier</button>  
                                     
                                 </div>
                             </div>
                         </div>
                         <div class="col col-md-auto">
-                            <div class="card bg-dark text-light" style="width: 18rem;">
-                                <img src="img/vég.png" width="286" height="230" class="card-img-top" alt="Végéterienne">
+                            <div class="card bg-dark text-light" id="Végétarienne" style="width: 18rem;">
+                                <img src="img/vég.png" width="286" height="230" class="card-img-top" alt="Végétarienne">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Végétarienne</h5>
                                     <p class="card-text">Sauce tomate, fromage, tomates, poivrons et olives, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>17,75€ <span class="stock">Stock : 77</span></p>
-                                    
+                                    <p>17,75€<span class="stock">Stock : <span class ="stock-quantity" >177</span></span></p>
+                                    <p>Quantité:</p>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('Végétarienne',this)">-</button>
+                                    <input type="text" class="num" value="0" size="1" readonly />
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('Végétarienne',this)">+</button><br>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-add-cart ">Ajouter au panier</button>  
                                 </div>
                             </div>
                         </div>
                         <div class="col col-md-auto">
-                            <div class="card bg-dark text-light" style="width: 18rem;">
+                            <div class="card bg-dark text-light" id="western" style="width: 18rem;">
                                 <img src="img/western.png" width="286" height="230" class="card-img-top" alt="western">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Western</h5>
                                     <p class="card-text">Crème fraîche, fromage, poulet, poivrons, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>15,50€ <span class="stock">Stock : 38</span></p> 
+                                    <p>15,50€<span class="stock">Stock : <span class ="stock-quantity" >238</span></span></p> 
+                                    <p>Quantité:</p>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('western',this)">-</button>
+                                    <input type="text" class="num" value="0" size="1" readonly />
+                                    <button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('western',this)">+</button><br>
+                                    <button type="button" class="btn btn-outline-light btn-sm button-add-cart ">Ajouter au panier</button>
                                 </div>
                             </div>
                         </div>

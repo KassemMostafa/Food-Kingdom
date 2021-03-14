@@ -38,3 +38,10 @@ footer{
     display: none;
     margin-left: 8.125em;
 }
+
+.button-cart{
+    margin-bottom: 4px;
+}
+.button-add-cart{
+    margin-top: 6px;
+}
