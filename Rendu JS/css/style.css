@@ -30,3 +30,11 @@ footer{
 .card{
     margin-bottom: 2em;
 }
+.button-stock{
+    margin-bottom: 10px;
+    position: bottom;
+}
+.stock{
+    display: none;
+    margin-left: 8.125em;
+}

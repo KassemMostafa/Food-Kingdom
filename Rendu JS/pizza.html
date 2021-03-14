@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/script.js"></script>
 
 </head>
 <!-- Entete       Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
@@ -75,7 +76,8 @@
                                     <p class="card-text">Sauce tomate,fromage,œuf, viande, champignons, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>11,60€</p>
+                                    <p>11,60€<span class="stock">Stock : 68</span></p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -84,10 +86,11 @@
                                 <img src="img/fruttidemare.png" width="286" height="230" class="card-img-top" alt="fruttidemare">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Frutti Di Mare</h5>
-                                    <p class="card-text">Sauce tomate, fromage, fruits de mer, ail et persil, pâte au choix.</p>
+                                    <p class="card-text">Sauce tomate, fromage, fruits de mer, ail et persil, pâte au choix. </p>
                                 </div>
                                 <div class="card-body">
-                                    <p>18,50€</p>
+                                    <p>18,50€<span class="stock">Stock : 59</span></p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -99,7 +102,8 @@
                                     <p class="card-text">Sauce tomate, Raclette, pomme de terre, poulet, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>14,00€</p>
+                                    <p>14,00€<span class="stock">Stock : 43</span></p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -108,10 +112,11 @@
                                 <img src="img/vég.png" width="286" height="230" class="card-img-top" alt="Végéterienne">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Végétarienne</h5>
-                                    <p class="card-text">Sauce tomate, fromage, tomates fraîches, poivrons et olives, pâte au choix.</p>
+                                    <p class="card-text">Sauce tomate, fromage, tomates, poivrons et olives, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>17,75€</p>
+                                    <p>17,75€ <span class="stock">Stock : 77</span></p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -120,15 +125,17 @@
                                 <img src="img/western.png" width="286" height="230" class="card-img-top" alt="western">
                                 <div class="card-body">
                                     <h5 class="card-title">Pizza Western</h5>
-                                    <p class="card-text">Crème fraîche, fromage, poulet épicé, poivrons et champignons, pâte au choix.</p>
+                                    <p class="card-text">Crème fraîche, fromage, poulet, poivrons, pâte au choix.</p>
                                 </div>
                                 <div class="card-body">
-                                    <p>15,50€</p>
+                                    <p>15,50€ <span class="stock">Stock : 38</span></p> 
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
+                <button type="button" class="btn btn-dark button-stock" value="stock-cache" id="stock-button" onclick="affichageStock(this.id)">Afficher Stock</button>
             </aside>
         </div>
         <!-- Pied de page -->
