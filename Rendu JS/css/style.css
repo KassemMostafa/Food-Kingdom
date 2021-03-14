@@ -1,0 +1,29 @@
+
+a:link {
+    text-decoration: none;
+    color: darkblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: darkblue;
+}
+
+a:hover {
+    text-decoration: none;
+    color: darkblue;
+}
+
+a:active {
+    text-decoration: none;
+    color: darkblue;
+}
+h2{
+    color: black;
+}
+b{
+    color: darkblue;
+}
+footer{
+    font-size: 0.8rem;
+}
