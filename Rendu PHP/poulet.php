@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<?php session_start() ?>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,26 +15,15 @@
 </head>
 <!-- Entete       Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
 <header>
-    <?php include("php\header.php"); ?>
+    <?php
+        $currentpage = "Poulet";
+        include("php\header.php"); 
+    ?>
 </header>
 	<!-- Menu vertical -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-auto bg-info text-dark">
-            <section class="align-middle">
-                <br>
-                <h2>Food Kingdom</h2>
-                <a href="index.html">Accueil</a>
-                <hr />
-                <p><u><b>Nos produits</b></u></p>
-                <ul style="list-style-type:none;">
-                    <li><a href="burger.html">Burger</a></li>
-                    <li><a href="poulet.html">Poulet</a></li>
-                    <li><a href="pizza.html">Pizza</a></li>
-                </ul>
-                <p /><a href="contact.html">Contact</a></p>
-            </section>
-        </div>
+    <?php include("php\\navBarVertical.php");?>
         <!-- Partie principale -->
         <div class="col-sm bg-warning">
             <aside>
@@ -133,10 +123,7 @@
         </div>
         <!-- Pied de page -->
         <footer>
-            <div class="text-center ">
-                <strong>FOOD KINGDOM®</strong> par Mostafa KASSEM et Tomy PHALYVONG. Le code source est protégé par la license
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. Le contenu est licenié <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC PAR NC SA 4.0</a>.
-            </div>
+        <?php include("php\\footer.php");?>
         </footer>
     </div>
 

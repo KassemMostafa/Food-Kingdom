@@ -7,20 +7,20 @@
 		  </button>
 		  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 			<ul class="navbar-nav justify-content-center">
-			  <li class="nav-item">
-				<a class="nav-link active" aria-current="page" href="Index.html">Accueil</a>
+			  <li class="nav-item"> 
+				<a <?php if($currentpage == "Index") {echo 'class="nav-link active" aria-current="page"';} else echo 'class = "nav-link"';?> href="index.php">Accueil</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="burger.php">Burger</a>
+				<a <?php if($currentpage == "Burger") {echo 'class="nav-link active" aria-current="page"';} else echo 'class = "nav-link"';?> href="burger.php">Burger</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="poulet.php">Poulet</a>
+				<a <?php if($currentpage == "Poulet") {echo 'class="nav-link active" aria-current="page"';} else echo 'class = "nav-link"';?> href="poulet.php">Poulet</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="pizza.php">Pizza</a>
+				<a <?php if($currentpage == "Pizza") {echo 'class="nav-link active" aria-current="page"';} else echo 'class = "nav-link"';?> href="pizza.php">Pizza</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="contact.php">Contact</a>
+				<a <?php if($currentpage == "Contact") {echo 'class="nav-link active" aria-current="page"';} else echo 'class = "nav-link"';?> href="contact.php">Contact</a>
 			  </li>
 			</ul>
 		  </div>
