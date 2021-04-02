@@ -36,7 +36,7 @@
                                 <img src="img/bucketmixte.png" class="card-img-top zoom" alt="bucketmixte">
                                 <div class="card-body">
                                     <h5 class="card-title">Bucket Wings et Tinders</h5>
-                                    <p class="card-text">poulet coupés, marinés et panés, Ailes de poulet marinées, panées</p>
+                                    <p class="card-text">poulet coupés, marinés et panés, Ailes de poulet marinées, panées.</p>
                                 </div>
                                 <div class="card-body">
                                     <p>35,00€<span class= "stock">Stock : <span class ="stock-quantity" >169</span></span></p>
