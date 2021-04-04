@@ -1,4 +1,7 @@
-﻿<?php session_start() ?>
+﻿<?php 
+  session_start();
+  require_once "php\\varSession.inc.php";
+?>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
