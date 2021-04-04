@@ -1,6 +1,10 @@
 ﻿<?php 
   session_start();
   require_once "php\\varSession.inc.php";
+  echo "DIR index" . __DIR__ . "<br>"; // absolute path to file
+  echo  "FILE index" . dirname(__FILE__) . "<br>"; //même chose;
+  echo "Script filename index" . $_SERVER["SCRIPT_FILENAME"] . "<br>"; 
+  echo "Document ROOT index" . $_SERVER['DOCUMENT_ROOT'] ."<br>";
 ?>
 <!DOCTYPE html>
 

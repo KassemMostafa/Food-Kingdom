@@ -1,6 +1,9 @@
 <?php 
     //pas de session start car le fichier est utilisé une seule fois dans index.php précédé par un session start
-    
+  echo "DIR " . __DIR__ . "<br>"; // absolute path to file
+  echo  "FILE " . dirname(__FILE__) . "<br>"; //même chose;
+  echo "Script filename " . $_SERVER["SCRIPT_FILENAME"] . "<br>"; 
+  echo "Document ROOT " . $_SERVER['DOCUMENT_ROOT'] ."<br>";    
     // Burgers
 
     $hamburger = array(
@@ -103,5 +106,6 @@
     $_SESSION["burger"] = array($hamburger,$cheeseBurger,$cheesyBacon,$doubleBeefBBQ,$doubleCheese);
     $_SESSION["poulet"] = array($bucketMixte,$chickenAvocado,$phillyChicken,$tastyChicken,$wings);
     $_SESSION["pizza"] = array($campione,$fruttiDeMare,$raclette,$vegetarienne,$western);
+    
     
 ?>
