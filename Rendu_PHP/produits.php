@@ -24,6 +24,7 @@
 			$currentpage = "poulet";
 		} else {
 			die();
+		
 		}
 		include("php/header.php");
 	?>
