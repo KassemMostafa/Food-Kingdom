@@ -29,17 +29,17 @@
                 <aside class="text-center">
                     <br>
                     <h1>Demande de contact</h1>
-                    <form method=get action="mailto:info@info.com" enctype="text/plain" id="formulaire">
+                    <form method="POST" action="php/verif.php" enctype="multipart/form-data" id="formulaire">
                         <label for="nom">Nom :</label><br>
-                        <input type="text" id="nom" required>
+                        <input type="text" name="nom" id="nom" required value="<?php if(isset($_SESSION['nom'])) echo $_SESSION['nom'];?>">
                         <small class="text-danger"></small><br>
                         
                         <label for="pnom">Prénom :</label><br>
-                        <input type="text" id="pnom" required>
+                        <input type="text" name="pnom"id="pnom" required value="<?php if(isset($_SESSION['nom'])) echo $_SESSION['nom'];?>">
                         <small class="text-danger"></small><br>
                         
                         <label for="email">Adresse Mail:</label><br>
-                        <input type="email" id="email" required><br>
+                        <input type="email" name="email"id="email" required value="zaea@ez.fr"><br>
                         <label for="genre">Genre :</label><br>
                         <div class="container">
                             <div class="row align-self-center">
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <label for="activité"> Secteur d'activité:</label> <br>
-                        <select id="Activité" name="activité" required>
+                        <select id="Activité" name="activité" value="<?php if(isset($_SESSION['contenu'])) echo $_SESSION['contenu'];?>" required>
                             <option disabled selected>Selectionnez un secteur d'activité</option>
                             <option value="Agriculture">Agriculture</option>
                             <option value="Agroalimentaire-Alimentation">Agroalimentaire-Alimentation</option>
@@ -74,11 +74,11 @@
                             <option value="Autre Secteur">Autre Secteur</option>
                         </select><br>
                         <label for="dateNaissance">Date de naissance : </label> <br>
-                        <input type="date" id="dateNaissance" name="dateNaissance" min="1900-01-01" max="2000-12-12" required><br>
+                        <input type="date" id="dateNaissance" name="dateNaissance" min="1111-01-01" max="2000-12-12" required value="<?php if(isset($_SESSION['LE_NOM_DU_CHAMP'])) echo $_SESSION['LE_NOM_DU_CHAMP'];?>"><br>
                         <label for="sujet">Sujet:</label> <br>
-                        <input type="text" id="sujet" name="sujet" required> <br>
+                        <input type="text" id="sujet" name="sujet" value="<?php if(isset($_SESSION['sujet'])) echo $_SESSION['sujet'];?>" required> <br>
                         <label for="contenu">Contenu:</label><br>
-                        <textarea name="contenu" rows="10" cols="40" required></textarea><br>
+                        <textarea name="contenu" rows="10" cols="40" value="" required><?php if(isset($_SESSION['contenu'])) echo $_SESSION['contenu'];?></textarea><br>
                         <input type="submit" name="submit" value="Send" />
                     </form>
                 </aside>
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="js/regExForm.js" async></script>
+    <!--<script type="text/javascript" src="js/regExForm.js" async></script>-->
 </body>
 <!-- Pied de page -->
 <footer>
