@@ -29,9 +29,9 @@
 		</div> 
 		<?php
 			if(isset($_SESSION["user"]))
-				echo '<a href="connexion.php">Connexion</a>';
+				echo '<a href="php/deconnexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par une page php ou javascript pour deco session   (en php session_destroy();)
 			else
-				echo '<a href="connexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par un bouton + option de deconnection de session
+				echo '<a href="connexion.php">Connexion</a>';
 					
 		?>
 	  </nav>
