@@ -20,9 +20,12 @@ else{
 		if($username == $obj[$i]->user && $password ==$obj[$i]->mdp){
 			//la personnne est bien un utilisateur du site
 			session_start();
+			$_SESSION["user"]=$username;
 			header("Location: http://projetdevweb/index.php");
 		}
 	}	
 
+	//N'est pas un utilisateur du site retour vers la page de connxion
+	header("Location: http://projetdevweb/php/connexion.php");
 }
 ?>
