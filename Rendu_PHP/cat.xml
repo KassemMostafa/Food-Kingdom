@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <categories>
     <categorie nom = 'burger'>
         <produit>
-            <name>Hamburger</name>
+            <nom>Hamburger</nom>
             <description>Pain spécial, steak haché, oignon, cornichon avec une sauce moutarde et ketchup.</description>
             <prix>3.00</prix>
             <stock>143</stock>
@@ -10,7 +10,7 @@
             <image>img/hamburger.png</image>
         </produit>
         <produit>
-            <name>Cheeseburger</name>
+            <nom>Cheeseburger</nom>
             <description>Pain spécial, steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu.</description>
             <prix>3.50</prix>
             <stock>242</stock>
@@ -18,7 +18,7 @@
             <image>img/cheeseburger.png</image>
         </produit>
         <produit>
-            <name>Cheesy Bacon</name>
+            <nom>Cheesy Bacon</nom>
             <description>Pain spécial, double steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu, bacon.</description>
             <prix>5.00</prix>
             <stock>223</stock>
@@ -26,7 +26,7 @@
             <image>img/cheesybacon.png</image>
         </produit>
         <produit>
-            <name>Double Beef BBQ</name>
+            <nom>Double Beef BBQ</nom>
             <description>Pain spécial, double steak haché, oignon, cornichon, Sauce BBQ, fromage fondu.</description>
             <prix>4.75</prix>
             <stock>312</stock>
@@ -34,7 +34,7 @@
             <image>img/doublebeefbbq.png</image>
         </produit>
         <produit>
-            <name>Double Cheese</name>
+            <nom>Double Cheese</nom>
             <description>Pain spécial, double steak haché, oignon, cornichon, double fromage fondu</description>
             <prix>4.50</prix>
             <stock>258</stock>
@@ -44,7 +44,7 @@
     </categorie>
     <categorie nom = 'poulet'>
         <produit>
-            <nom>Bucket Wings et Tinders</nom>
+            <nom>Bucket Wings et Tenders</nom>
             <description>poulet coupés, marinés et panés, Ailes de poulet marinées, panées.</description>
             <prix>35.00</prix>
             <stock>169</stock>
