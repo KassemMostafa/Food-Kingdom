@@ -1,6 +1,5 @@
 ﻿<?php 
   session_start();
-  require_once "varSession.inc.php";
 ?>
 <!DOCTYPE html>
 

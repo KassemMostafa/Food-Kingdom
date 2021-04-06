@@ -3,6 +3,8 @@
 
     // Burgers
 
+    
+
     $hamburger = array(
         'nom' => 'Hamburger',
         'description' => 'Pain spécial, steak haché, oignon, cornichon avec une sauce moutarde et ketchup.',
@@ -20,14 +22,14 @@
         'image' => 'img/cheeseburger.png');
     $cheesyBacon = array(
         'nom' => 'Cheesy Bacon',
-        'description' => 'Pain spécial, double steak haché, oignon, cornichon, moutarde, ketchup, 	fromage fondu, bacon.',
+        'description' => 'Pain spécial, double steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu, bacon.',
         'prix' => 5.00,
         'stock' => 223,
         'alt' => 'cheesybacon',
         'image' => 'img/cheesybacon.png');
     $doubleBeefBBQ = array(
         'nom' => 'Double Beef BBQ',
-        'description' => 'Pain spécial, double steak haché, oignon, cornichon, moutarde, ketchup, 	fromage fondu, bacon.',
+        'description' => 'Pain spécial, double steak haché, oignon, cornichon, Sauce BBQ, fromage fondu.',
         'prix' => 4.75,
         'stock' => 312,
         'alt' => 'doublebeefbbq',
@@ -116,9 +118,16 @@
         'alt' => 'western',
         'image' => 'img/western.png');
     
+    
+    
+
+
+    
+    $cat = array("burger", "poulet", "pizza");
     $_SESSION["burger"] = array($hamburger,$cheeseBurger,$cheesyBacon,$doubleBeefBBQ,$doubleCheese);
     $_SESSION["poulet"] = array($bucketMixte,$chickenAvocado,$phillyChicken,$tastyChicken,$wings);
     $_SESSION["pizza"] = array($campione,$fruttiDeMare,$raclette,$vegetarienne,$western);
-    
-    
+    $xml = simplexml_load_file("cat.xml") or die("Error : Cannot create object");
+    // Goal, transform my session variables to json files and then extract the files back to session variables
+
 ?>
