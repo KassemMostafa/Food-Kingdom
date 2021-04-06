@@ -50,7 +50,7 @@ if (empty($_POST['nom']) || empty($_POST['pnom']) || empty($_POST['email']) || e
 	}
 	else
 	{
-		//enregistrement des veriables de session
+//enregistrement des veriables de session
 			
 		$regxmail = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/";
 		$regxstr ="^[A-Za-z]+((\s)?([A-Za-z])+)*$^";
@@ -61,10 +61,21 @@ if (empty($_POST['nom']) || empty($_POST['pnom']) || empty($_POST['email']) || e
 		$verif4= preg_match($regxdate, $dateNaissance);
 		$verif5= preg_match($regxstr, $sujet);
 		$verif6= preg_match($regxstr, $contenu);
+// Verification par regex				//mail à modifier manuellement selon le webmaster
 		if( $verif1 && $verif2 && $verif3 && $verif4 && $verif5 && $verif6 ){
-			sleep(5);
+			    ini_set( 'display_errors', 1 );
+				error_reporting( E_ALL );
+				$from = "BOT@hostinger.fr";
+				$to = "BOT@hostinger.fr";
+				$subject = $sujet;
+				$message = $contenu;
+				$headers = "De :" . $from;
+				mail($to,$subject,$message, $headers);
+				echo "L'email a été envoyé.";
+				header("Location: http://projetdevweb/index.php");
+				sleep(1);
 		}
-		else{
+		else{							//si non verifier aller retourner sur la page d'acceuil
 			$_SESSION["nom"] = $nom;
 			$_SESSION["pnom"] = $pnom;
 			$_SESSION["email"] = $email;
@@ -75,6 +86,7 @@ if (empty($_POST['nom']) || empty($_POST['pnom']) || empty($_POST['email']) || e
 			$_SESSION["contenu"] = $contenu;
 			header("location:".  $_SERVER['HTTP_REFERER']); 
 			//header("Location: http://projetdevweb/contact.php");
+			
 			
 		}
 	}
