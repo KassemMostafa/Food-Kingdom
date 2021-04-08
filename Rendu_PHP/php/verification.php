@@ -5,7 +5,8 @@ $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : N
 
 if (empty($_POST["username"]) || empty($_POST['password']) ){
 	//l'utilisateur n'a rien saisi
-	header("Location: http://projetdevweb/php/connexion.php");
+	header("Location: http://projetdevweb/connexion.php");
+	echo "fail";
 }
 else{
 	// chemin d'accès à votre fichier JSON
@@ -16,16 +17,16 @@ else{
 	$obj = json_decode($data); 
 	// accéder à l'élément approprié
 	for ($i = 0; $i <= count($obj)-1; $i++) {
-		echo $obj[$i]->user;
+		//echo $obj[$i]->user;
 		if($username == $obj[$i]->user && $password ==$obj[$i]->mdp){
 			//la personnne est bien un utilisateur du site
 			session_start();
-			$_SESSION["user"]=$username;
+			$_SESSION["userConnect"]=$username;
 			header("Location: http://projetdevweb/index.php");
 		}
 	}	
-
-	//N'est pas un utilisateur du site retour vers la page de connxion
-	header("Location: http://projetdevweb/php/connexion.php");
 }
+	//N'est pas un utilisateur du site retour vers la page de connxion
+//	header("Location: http://projetdevweb/connexion.php");
+
 ?>
