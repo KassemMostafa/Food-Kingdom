@@ -51,24 +51,26 @@
 		<div class = "container">
 			<div class="row justify-content-md-center">
 				<?php foreach ($_SESSION[$_GET['cat']] as $value) {
-					echo '<div class="col col-md-auto">';
-					echo '<div class="card bg-dark text-light" id="'. $value["alt"] . '" style="width: 18rem";>';
-					echo '<img src = "'. $value['image'] . '" class = "card-img-top zoom" alt = "'. $value["alt"] .'">';
-					echo '<div class="card-body">';
-					echo '<h5 class="card-title">' . $value["nom"] . '</h5>';
-					echo '<p class="card-text">' . $value["description"] . '</p>';
-					echo '</div>';
-					echo '<div class="card-body">';
-					echo '<p>' . $value["prix"] . '€<span class= "stock">Stock : <span class ="stock-quantity">' . $value['stock'] . "</span></span></p>";
-					echo '<p> Quantité : </p>';
-					echo '<button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('. "'" . $value["alt"] . "'" . ',this)">-</button>';
-					echo '<input type="text" class="num" value="0" size="1" readonly />';
-					echo '<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up(' . "'" . $value["alt"] . "'" . ',this)">+</button><br>';
-					echo '<button type="button" class="btn btn-outline-light btn-sm button-add-cart  ">Ajouter au panier</button>';
-					echo '</div>';
-					echo '</div>';
-					echo '</div>';
-				} ?>
+				?>
+					<div class="col col-md-auto">
+						<div class="card bg-dark text-light" id="<?php echo $value["alt"]?>" style="width: 18rem";>
+							<img src = "<?php echo $value['image']?>" class = "card-img-top zoom" alt = "<?php echo $value["alt"] ?>">
+							<div class="card-body">
+								<h5 class="card-title"><?php echo $value["nom"] ?> </h5>
+								<p class="card-text"> <?php echo $value["description"] ?></p>
+							</div>
+							<div class="card-body">
+								<p> <?php echo $value["prix"]?>€<span class= "stock">Stock : <span class ="stock-quantity"> <?php echo $value['stock'] ?></span></span></p>
+								<p> Quantité : </p>	
+								<button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('<?php echo $value['alt']?>',this)">-</button>
+								<input type="text" class="num" value="0" size="1" readonly />
+								<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
+								<button type="button" class="btn btn-outline-light btn-sm button-add-cart  ">Ajouter au panier</button>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+				
 			</div>
 		</div>
 		<button type="button" class="btn btn-dark button-stock" value="stock-cache" id="stock-button" onclick="affichageStock(this.id)">Afficher Stock</button>

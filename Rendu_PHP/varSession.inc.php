@@ -128,6 +128,120 @@
     $_SESSION["poulet"] = array($bucketMixte,$chickenAvocado,$phillyChicken,$tastyChicken,$wings);
     $_SESSION["pizza"] = array($campione,$fruttiDeMare,$raclette,$vegetarienne,$western);
     $xml = simplexml_load_file("cat.xml") or die("Error : Cannot create object");
-    // Goal, transform my session variables to json files and then extract the files back to session variables
+    // il reste d'ajouter les categorie dans xml et dans session*
+    if (count($xml->categorie) > count($cat)) {
+        //je veux trouver la bonne categorie (càd le bon attribut qui n'est pas dans la cat et l'ajouter)
+        $longueurCatSession = count($cat);
+        for ($i = 0; $i < $longueurCatSession; $i++) {
+            $existe = false;
+            foreach($xml->categorie as $produit) {
+                $nomCategorie = strval($produit["nom"]);
+            if ($cat[$i] == $nomCategorie) {
+                $existe = true;
+            }
+        }
+            if ($existe = false) {
+                array_push($cat, $nomCategorie);
+            }
+        }
+    } elseif (count($xml->categorie) < count($cat)) {
+        //ajout catégorie varSession dans xml
+        $longueurCatSession = count($cat);
+        for ($i = 0; $i < $longueurCatSession; $i++)
+        {
+            $existe = false;
+            foreach ($xml->categorie as $produit) {
+                $nomCategorie = strval($produit["nom"]);
+                if ($cat[$i] == $nomCategorie) {
+                    $existe = true;
+                }
+            }
+            if ($existe == false) {
+                $caseFound = $i;
+                $fxml = fopen("cat.xml","a+");
+                rewind($fxml);
+                $categoryFound = false;
+                while (!feof($fxml) && $categoryFound == false) {
+                    $line = fgets($fxml);
+                    if (strpos($line, "<categories>") !== false) {
+                        $categoryFound = true;
+                    }
+                }
+                fwrite($fxml, "<categorie nom = '". $cat[$caseFound] ."'>\r\n");
+                fwrite($fxml, "</categorie>\r\n");
+            }
+        }
+    }
 
+
+    if (count($xml->categorie) == count($cat)) { //si pas de nouveau catégorie on vérifie les produit
+        foreach($xml->categorie as $produits) { //1 seule categorie
+            $nomCategorie = strval($produits['nom']); // nom categorie
+            $num = count($_SESSION[$nomCategorie]);
+            if (count($produits) < count($_SESSION[$nomCategorie])) { // 
+                //je dois ecrire les produits dans le xml 
+                //si une var de session n'est pas dans produit, je l'ajoute
+                for ($i = 0; $i < count($_SESSION[$nomCategorie]) ; $i++) {
+                    $existe = false;
+                    foreach($produits as $produit) {
+                        //je cherche la variable de session qui n'est pas dans le xml
+                        if ($produit->nom == $_SESSION[$nomCategorie][$i]["nom"]) {
+                            $existe = true;
+                        } 
+                    }
+                    if ($existe = false) {
+                        $caseNotFound = $i; 
+                        $fxml = fopen("cat.xml","a+");
+                        rewind($fxml);
+                        $categoryFound = false;
+                        while (!feof($fxml) && $categoryFound == false) {
+                            $line = fgets($fxml);
+                            if (strpos($line, $nomCategorie) !== false) {
+                                $categoryFound = true;
+                            }
+                        }
+                        fwrite($fxml, "<produit>\r\n");
+                        fwrite($fxml, "<nom>" . $_SESSION[$nomCategorie][$caseNotFound]["nom"] . "</nom>\r\n");
+                        fwrite($fxml,"<description>" . $_SESSION[$nomCategorie][$caseNotFound]["description"] . "</description>\r\n");
+                        fwrite($fxml, "<prix>" . $_SESSION[$nomCategorie][$caseNotFound]["prix"] . "</prix>\r\n");
+                        fwrite($fxml, "<stock>" . $_SESSION[$nomCategorie][$caseNotFound]["stock"] . "</stock>\r\n");
+                        fwrite($fxml, "<alt>" . $_SESSION[$nomCategorie][$caseNotFound]["alt"] . "</alt>\r\n");
+                        fwrite($fxml, "<image>" . $_SESSION[$nomCategorie][$caseNotFound]["image"] . "</image>\r\n");
+                        fwrite($fxml, "</produit>\r\n");
+                        fclose($fxml);
+                    }
+                }
+            } elseif (count($produits) > count($_SESSION[$nomCategorie])) {
+                //remplir ajouter des produits dans la variable de session correspondante C
+
+                //CETTE PARTIE EST FAITE
+                foreach($produits as $produit) { //je parcours les produits du xml
+                    $existe = false;
+                    //$difference = count($produits) - count($_SESSION[$nomCategorie]); // nb de produits à changer
+                    $lengthSession = count($_SESSION[$nomCategorie]);
+                    for ($i = 0; $i < $lengthSession; $i++) {
+                        if($_SESSION[$nomCategorie][$i]["nom"] == $produit->nom) { //si mon produit dans le xml est dans la var de session
+                            $existe = true;
+                        }
+                    }
+                    if ($existe = false) { // le produit du xml n'est pas dans la var de SESSION
+                        //je l'ajoute dans le tableau de session;
+                        $newProduit = array(
+                            'nom' => $produit->nom,
+                            'description' => $produit->description,
+                            'prix' => $produit->prix,
+                            'stock' => $produit->stock,
+                            'alt' => $produit->alt,
+                            'image' => $produit->image);
+                        array_push($_SESSION[$nomCategorie], $newProduit);
+                    }
+                }
+            }
+        }        
+    }
+   
+
+
+        
+    
 ?>
