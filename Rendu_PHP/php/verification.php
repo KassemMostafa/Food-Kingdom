@@ -5,7 +5,7 @@ $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : N
 
 if (empty($_POST["username"]) || empty($_POST['password']) ){
 	//l'utilisateur n'a rien saisi
-	header("Location: http://projetdevweb/php/connexion.php");
+	header("Location: /php/connexion.php");
 }
 else{
 	// chemin d'accès à votre fichier JSON
@@ -21,11 +21,11 @@ else{
 			//la personnne est bien un utilisateur du site
 			session_start();
 			$_SESSION["user"]=$username;
-			header("Location: http://projetdevweb/index.php");
+			header("Location: /index.php");
 		}
 	}	
 
 	//N'est pas un utilisateur du site retour vers la page de connxion
-	header("Location: http://projetdevweb/php/connexion.php");
+	header("Location: /php/connexion.php");
 }
 ?>

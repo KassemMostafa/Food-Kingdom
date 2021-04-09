@@ -72,7 +72,7 @@ if (empty($_POST['nom']) || empty($_POST['pnom']) || empty($_POST['email']) || e
 				$headers = "De :" . $from;
 				mail($to,$subject,$message, $headers);
 				echo "L'email a été envoyé.";
-				header("Location: http://projetdevweb/index.php");
+				header("Location: /index.php");
 				sleep(1);
 		}
 		else{							//si non verifier aller retourner sur la page d'acceuil

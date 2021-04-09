@@ -121,7 +121,6 @@
     
     
 
-
     
     $cat = array("burger", "poulet", "pizza");
     $_SESSION["burger"] = array($hamburger,$cheeseBurger,$cheesyBacon,$doubleBeefBBQ,$doubleCheese);
@@ -239,6 +238,7 @@
             }
         }        
     }
+   
    
 
 
