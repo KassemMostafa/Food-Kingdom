@@ -43,22 +43,35 @@
 			<div class="row justify-content-md-center">
 				<?php foreach ($_SESSION[$_GET['cat']] as $value) {
 				?>
+					
 					<div class="col col-md-auto">
-						<div class="card bg-dark text-light" id="<?php echo $value["alt"]?>" style="width: 18rem";>
-							<img src = "<?php echo $value['image']?>" class = "card-img-top zoom" alt = "<?php echo $value["alt"] ?>">
-							<div class="card-body">
-								<h5 class="card-title"><?php echo $value["nom"] ?> </h5>
-								<p class="card-text"> <?php echo $value["description"] ?></p>
+						<form method="POST" action="php/incrementation.php" enctype="multipart/form-data">
+							<div class="card bg-dark text-light" id="<?php echo $value["alt"]?>" style="width: 18rem";>
+								<img src = "<?php echo $value['image']?>" class = "card-img-top zoom" alt = "<?php echo $value["alt"] ?>">
+								<input name="produit" type="hidden" value="<?php echo $value["nom"]?>">
+								<div class="card-body">
+									<h5 class="card-title"><?php echo $value["nom"] ?> </h5>
+									<p class="card-text"> <?php echo $value["description"] ?></p>
+								</div>
+								<div class="card-body">
+									
+										<p> <?php echo $value["prix"]?>€<span class= "stock">Stock : <span class ="stock-quantity"> <?php echo $value['stock'] ?></span></span></p>
+										<p> Quantité : </p>	
+										<button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('<?php echo $value['alt']?>',this)">-</button>
+										<input type="text" class="num" 
+										value= 
+										<?php //echo '"';
+										if(isset($_SESSION[$value["nom"]]))
+											echo $_SESSION['qte'.$value['nom']];
+										else{echo '0';}
+										//echo "'"?>
+										size="1" name="qteProduit" readonly />
+										<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
+										<button type="submit" class="btn btn-outline-light btn-sm button-add-cart  ">Ajouter au panier</button>
+									
+								</div>
 							</div>
-							<div class="card-body">
-								<p> <?php echo $value["prix"]?>€<span class= "stock">Stock : <span class ="stock-quantity"> <?php echo $value['stock'] ?></span></span></p>
-								<p> Quantité : </p>	
-								<button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('<?php echo $value['alt']?>',this)">-</button>
-								<input type="text" class="num" value="0" size="1" readonly />
-								<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
-								<button type="button" class="btn btn-outline-light btn-sm button-add-cart  ">Ajouter au panier</button>
-							</div>
-						</div>
+						</form>
 					</div>
 				<?php } ?>
 				
