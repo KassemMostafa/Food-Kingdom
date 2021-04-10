@@ -35,11 +35,10 @@
 						<input type="password" name="password" placeholder="Mot de passe" />
 						<input  type="submit" name="signup_submit" value="Connexion" /><br>
 					</form>
-      <!--<a class="inscription" href="inscription.html" onclick="openForm4()" >Connexion</a>-->
-
-    </div>
-                    
+      <!--<a class="inscription" href="inscription.html" onclick="openForm4()" >Connexion</a>-->	
+					</div>    
                 </aside>
+				
             </div>
         </div>
     </div>
