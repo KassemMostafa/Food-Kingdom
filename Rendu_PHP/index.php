@@ -18,7 +18,7 @@
 <header>
 
   <?php
-    $currentpage = "Index";
+    $currentpage = "index";
     include("php/header.php"); 
   ?>
 </header>

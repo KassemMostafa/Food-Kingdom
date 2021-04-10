@@ -16,16 +16,7 @@
 <!-- Entete       Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
 <header>
 	<?php
-		if ($_GET['cat'] == "burger"){ 
-			$currentpage = "burger";
-		} else if($_GET['cat'] == "pizza"){
-			$currentpage = "pizza";
-		} else if ($_GET['cat'] == "poulet") {
-			$currentpage = "poulet";
-		} else {
-			die();
-		
-		}
+		$currentpage = $_GET['cat'];
 		include("php/header.php");
 	?>
 </header>
