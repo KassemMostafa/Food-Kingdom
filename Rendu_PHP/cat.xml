@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <categories>
-    <categorie nom = 'burger'>
+    <categorie nom="burger">
         <produit>
             <nom>Hamburger</nom>
             <description>Pain spécial, steak haché, oignon, cornichon avec une sauce moutarde et ketchup.</description>
@@ -42,7 +42,7 @@
             <image>img/doublecheese.png</image>
         </produit>
     </categorie>
-    <categorie nom = 'poulet'>
+    <categorie nom="poulet">
         <produit>
             <nom>Bucket Wings et Tenders</nom>
             <description>poulet coupés, marinés et panés, Ailes de poulet marinées, panées.</description>
@@ -84,7 +84,7 @@
             <image>img/Wings.png</image>
         </produit>
     </categorie>    
-    <categorie nom = 'pizza'>
+    <categorie nom="pizza">
         <produit>
             <nom>Pizza Campione</nom>
             <description>Sauce tomate,fromage,œuf, viande, champignons, pâte au choix.</description>
