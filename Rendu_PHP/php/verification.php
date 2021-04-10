@@ -6,7 +6,7 @@ $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : N
 if (empty($_POST["username"]) || empty($_POST['password']) ){
 	//l'utilisateur n'a rien saisi
 	header("Location: /connexion.php");
-	echo "fail";
+	//echo "fail";
 }
 else{
 	// chemin d'accès à votre fichier JSON
@@ -27,6 +27,9 @@ else{
 	}	
 }
 	//N'est pas un utilisateur du site retour vers la page de connxion
-//	header("Location: /connexion.php");
+header("Location: /connexion.php");
+
+
+
 
 ?>

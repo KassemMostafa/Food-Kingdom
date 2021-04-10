@@ -1,4 +1,4 @@
-<p><?php
+<?php
 session_start();
 //include "H:\Desktop\2020-2021\S2\DevWeb\rendus\Rendu_PHP\contact.php";
 
@@ -94,5 +94,3 @@ if (empty($_POST['nom']) || empty($_POST['pnom']) || empty($_POST['email']) || e
 
 
  ?>
- 
- <p>
