@@ -1,6 +1,6 @@
 <?php 
 	require_once "varSession.inc.php";
-	if (!isset($currentpage) || $currentpage == 'index' || $currentpage == 'contact') {
+	if (!isset($currentpage) || $currentpage == 'index' || $currentpage == 'contact' || $currentpage == 'connexion') {
 		$existe = true;
 	} else {
 		$existe = false;
@@ -46,13 +46,30 @@
 			</ul>
 		  </div>
 		</div> 
-		<?php
-			if(isset($_SESSION["userConnect"]))
-				echo '<a href="php/deconnexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par une page php ou javascript pour deco session   (en php session_destroy();)
-			else
-				echo '<a href="connexion.php">Connexion</a>';
-					
+		
+		
+		
+		
+		<div class="container-fluid-col-1">
+		  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+			<ul class="navbar-nav justify-content-center">
+<?php
+			echo '<a ';
+			if(isset($_SESSION["userConnect"])){
+				echo 'class="nav-link" href="php/deconnexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par une page php ou javascript pour deco session   (en php session_destroy();)
+			}
+			else{
+				if($currentpage == "connexion") 
+					{echo 'class="nav-link active" aria-current="page"';} 
+				else 
+					echo 'class = "nav-link"';
+				echo ' class="nav-link" href="connexion.php">Connexion</a>';
+			}	
 		?>
+			</ul>
+		  </div>
+		</div>
+		
 	  </nav>
 
 	  

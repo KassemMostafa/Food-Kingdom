@@ -181,4 +181,5 @@
             array_push($_SESSION[$nomCategorie], $product);
         }
     }
+	//var_dump($_SESSION($produit);
 ?>

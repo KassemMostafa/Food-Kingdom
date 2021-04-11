@@ -2,6 +2,8 @@
 
 $username = isset($_POST["username"]) ? htmlspecialchars($_POST["username"]) : NULL;
 $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : NULL;
+$location = False;
+
 
 if (empty($_POST["username"]) || empty($_POST['password']) ){
 	//l'utilisateur n'a rien saisi
@@ -22,14 +24,17 @@ else{
 			//la personnne est bien un utilisateur du site
 			session_start();
 			$_SESSION["userConnect"]=$username;
+			$location = TRUE;
 			header("Location: /index.php");
+			echo "zeae";
+	var_dump($location);
+
 		}
 	}	
 }
-	//N'est pas un utilisateur du site retour vers la page de connxion
-header("Location: /connexion.php");
-
-
-
-
+///var_dump($location);
+	 //N'est pas un utilisateur du site retour vers la page de connxion
+	if($location == False){
+		header("Location: /connexion.php");
+	}
 ?>

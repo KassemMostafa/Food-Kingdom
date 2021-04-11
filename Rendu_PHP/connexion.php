@@ -14,7 +14,7 @@
 <!-- Entete Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
 <header>
     <?php 
-        $currentpage = "contact";
+        $currentpage = "connexion";
         include("php\header.php"); 
     ?>
 </header>
