@@ -23,6 +23,9 @@ else{
 		if($username == $obj[$i]->user && $password ==$obj[$i]->mdp){
 			//la personnne est bien un utilisateur du site
 			session_start();
+			
+			$_SESSION['panier']=[];		//initialisation du panier
+			
 			$_SESSION["userConnect"]=$username;
 			$location = TRUE;
 			header("Location: /index.php");

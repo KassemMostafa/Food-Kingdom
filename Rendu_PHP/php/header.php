@@ -66,6 +66,7 @@
 				echo ' class="nav-link" href="connexion.php">Connexion</a>';
 			}	
 		?>
+		<a class="nav-link" href="panier.php">panier</a>
 			</ul>
 		  </div>
 		</div>
