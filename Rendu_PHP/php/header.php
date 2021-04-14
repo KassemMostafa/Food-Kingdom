@@ -1,6 +1,6 @@
 <?php 
 	require_once "varSession.inc.php";
-	if (!isset($currentpage) || $currentpage == 'index' || $currentpage == 'contact' || $currentpage == 'connexion') {
+	if (!isset($currentpage) || $currentpage == 'index' || $currentpage == 'contact' || $currentpage == 'connexion' || $currentpage == 'panier') {
 		$existe = true;
 	} else {
 		$existe = false;
@@ -56,15 +56,21 @@
 <?php
 			echo '<a ';
 			if(isset($_SESSION["userConnect"])){
-				echo 'class="nav-link" href="php/deconnexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par une page php ou javascript pour deco session   (en php session_destroy();)
-				echo '<a class="nav-link" href="panier.php">panier</a>';
+				//echo '<li>';
+				echo '<a class="nav-link" href="php/deconnexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par une page php ou javascript pour deco session   (en php session_destroy();)
+				//echo '</li>';
+				if($currentpage == "panier")
+					echo '<a class="nav-link active" aria-current="page"';
+				else
+					echo '<a class="nav-link"';
+				echo 'aria-current="page" href="panier.php">panier</a>';
 			}
 			else{
 				if($currentpage == "connexion") 
-					{echo 'class="nav-link active" aria-current="page"';} 
+					{echo '<a class="nav-link active" aria-current="page"';} 
 				else 
-					echo 'class = "nav-link"';
-				echo ' class="nav-link" href="connexion.php">Connexion</a>';
+					echo '<a class = "nav-link"';
+				echo ' href="connexion.php">Connexion</a>';
 			}	
 		?>
 		
