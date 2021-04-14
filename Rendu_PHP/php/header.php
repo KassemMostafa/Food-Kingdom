@@ -57,6 +57,7 @@
 			echo '<a ';
 			if(isset($_SESSION["userConnect"])){
 				echo 'class="nav-link" href="php/deconnexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par une page php ou javascript pour deco session   (en php session_destroy();)
+				echo '<a class="nav-link" href="panier.php">panier</a>';
 			}
 			else{
 				if($currentpage == "connexion") 
@@ -66,7 +67,7 @@
 				echo ' class="nav-link" href="connexion.php">Connexion</a>';
 			}	
 		?>
-		<a class="nav-link" href="panier.php">panier</a>
+		
 			</ul>
 		  </div>
 		</div>
