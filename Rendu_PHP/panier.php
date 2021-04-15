@@ -27,6 +27,34 @@
             <!-- Partie principale -->
             <div class="col-sm text-dark bg-warning text-light">
                 <aside class="text-center">
+					<table class="table">
+					<tr>
+					<td>produit</td>
+					<td>quantite</td>
+					<td>prix unitaire</td>
+					<td>prix total</td>
+					</tr>
+					<?php
+						$sum=0;
+						foreach ($_SESSION["panier"] as $key => $value){
+							echo '<tr>';
+							echo '<td>'.$key . "</td>";
+							echo '<td>'.$value['qte'] . "</td>";
+							echo '<td>'.$value['prix'] . "</td>";;
+							echo '<td>'.$value['qte']*$value['prix'] . "</td>";
+							$sum=$sum+($value['qte']*$value['prix']);
+							echo '<br/>';
+							echo '</tr>';
+						}
+						echo '<tr>';
+						echo '<td>'."</td>";
+						echo '<td>'."</td>";
+						echo '<td>'."</td>";;
+						echo '<td>'.$sum."</td>";;							
+						echo '<br/>';
+						echo '</tr>';
+					?>
+					</table>
                 </aside>
             </div>
         </div>
