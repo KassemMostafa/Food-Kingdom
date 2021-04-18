@@ -58,7 +58,7 @@
 										<p> <?php echo $value["prix"]?>€<span class= "stock">Stock : <span class ="stock-quantity"> <?php echo $value['stock'] ?></span></span></p>
 										<input name="prix" type="hidden" value="<?php echo $value["prix"]?>">
 										<p> Quantité : </p>	
-										<button type="button" class="btn btn-outline-light btn-sm button-cart decrease" disabled onclick="down('<?php echo $value['alt']?>',this)">-</button>
+										<button type="button" class="btn btn-outline-light btn-sm button-cart decrease" onclick="down('<?php echo $value['alt']?>',this)">-</button>
 										<input type="text" class="num" 
 										value= 
 										<?php 
@@ -78,7 +78,7 @@
 										?>
 										size="1" name="qteProduit" readonly />
 										<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
-										<button type="submit" class="btn btn-outline-light btn-sm button-add-cart  ">Ajouter au panier</button>
+										<button type="submit" class="btn btn-outline-light btn-sm button-add-cart  "><?php if ($flag){echo "Modifier";}else{echo "Ajouter";} ?> au panier</button>
 									
 								</div>
 							</div>

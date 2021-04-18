@@ -17,8 +17,12 @@ else{
 	//echo $produit.$qte;
 
 	//controle variable, ajout au variable de session
-	if (empty($_POST['produit']) || empty($_POST['qteProduit'])){
-		//si vide ne rien faire
+	if (empty($_POST['qteProduit'])){
+		foreach($_SESSION["panier"] as $key => $value){
+			if ($key ==$produit){
+				unset($_SESSION["panier"][$key]);
+			}
+		}
 	}
 	else{
 		//$_SESSION[$produit] = $produit;
