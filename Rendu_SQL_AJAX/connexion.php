@@ -14,7 +14,7 @@
 <!-- Entete Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
 <header>
     <?php 
-        $currentpage = "panier";
+        $currentpage = "connexion";
         include("php\header.php"); 
     ?>
 </header>
@@ -27,36 +27,18 @@
             <!-- Partie principale -->
             <div class="col-sm text-dark bg-warning text-light">
                 <aside class="text-center">
-					<table class="table">
-					<tr>
-					<td>produit</td>
-					<td>quantite</td>
-					<td>prix unitaire</td>
-					<td>prix total</td>
-					</tr>
-					<?php
-						$sum=0;
-						foreach ($_SESSION["panier"] as $key => $value){
-							echo '<tr>';
-							echo '<td>'.$key . "</td>";
-							echo '<td>'.$value['qte'] . "</td>";
-							echo '<td>'.$value['prix'] . "</td>";;
-							echo '<td>'.$value['qte']*$value['prix'] . "</td>";
-							$sum=$sum+($value['qte']*$value['prix']);
-							echo '<br/>';
-							echo '</tr>';
-						}
-						echo '<tr>';
-						echo '<td>'."</td>";
-						echo '<td>'."</td>";
-						echo '<td>'."</td>";;
-						echo '<td>'.$sum."</td>";;							
-						echo '<br/>';
-						echo '</tr>';
-					?>
-					</table>
-					<button class="btn btn-danger">payer</button>
-				</aside>
+                    <br>
+					<div class="left">
+					 <form action="php/verification.php" method="POST">
+						<h1>Connexion</h1>
+						<input type="text" name="username" placeholder="Identifiant" />
+						<input type="password" name="password" placeholder="Mot de passe" />
+						<input  type="submit" name="signup_submit" value="Connexion" /><br>
+					</form>
+      <!--<a class="inscription" href="inscription.html" onclick="openForm4()" >Connexion</a>-->	
+					</div>    
+                </aside>
+				
             </div>
         </div>
     </div>

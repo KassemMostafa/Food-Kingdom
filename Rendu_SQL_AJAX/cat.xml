@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<categories>
+    <categorie nom="burger">
+        <produit>
+            <nom>Hamburger</nom>
+            <description>Pain spécial, steak haché, oignon, cornichon avec une sauce moutarde et ketchup.</description>
+            <prix>3.00</prix>
+            <stock>143</stock>
+            <alt>hamburger</alt>
+            <image>img/hamburger.png</image>
+        </produit>
+        <produit>
+            <nom>Cheeseburger</nom>
+            <description>Pain spécial, steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu.</description>
+            <prix>3.50</prix>
+            <stock>242</stock>
+            <alt>cheeseburger</alt>
+            <image>img/cheeseburger.png</image>
+        </produit>
+        <produit>
+            <nom>Cheesy Bacon</nom>
+            <description>Pain spécial, double steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu, bacon.</description>
+            <prix>5.00</prix>
+            <stock>223</stock>
+            <alt>cheesybacon</alt>
+            <image>img/cheesybacon.png</image>
+        </produit>
+        <produit>
+            <nom>Double Beef BBQ</nom>
+            <description>Pain spécial, double steak haché, oignon, cornichon, Sauce BBQ, fromage fondu.</description>
+            <prix>4.75</prix>
+            <stock>312</stock>
+            <alt>doublebeefbbq</alt>
+            <image>img/doublebeefbbq.png</image>
+        </produit>
+        <produit>
+            <nom>Double Cheese</nom>
+            <description>Pain spécial, double steak haché, oignon, cornichon, double fromage fondu</description>
+            <prix>4.50</prix>
+            <stock>258</stock>
+            <alt>doublecheese</alt>
+            <image>img/doublecheese.png</image>
+        </produit>
+    </categorie>
+    <categorie nom="poulet">
+        <produit>
+            <nom>Bucket Wings et Tenders</nom>
+            <description>poulet coupés, marinés et panés, Ailes de poulet marinées, panées.</description>
+            <prix>35.00</prix>
+            <stock>169</stock>
+            <alt>bucketmixte</alt>
+            <image>img/bucketmixte.png</image>
+        </produit>
+        <produit>
+            <nom>Chicken Avocado</nom>
+            <description>Pain spécial, poulet, sauce avocado, fromage fondu, crudités.</description>
+            <prix>8.00</prix>
+            <stock>372</stock>
+            <alt>chickenavocado</alt>
+            <image>img/chickenavocado.png</image>
+        </produit>
+        <produit>
+            <nom>Philly Chicken</nom>
+            <description>Sub brioché, bacon, tomate, pickles, cheddar, salade, sauce.</description>
+            <prix>9.30</prix>
+            <stock>203</stock>
+            <alt>Phillychicken</alt>
+            <image>img/Phillychicken.png</image>
+        </produit>
+        <produit>
+            <nom>Tasty Chicken</nom>
+            <description>Pain, panée au poulet, salade, oignon, emmental , tomate, sauce.</description>
+            <prix>4.75</prix>
+            <stock>443</stock>
+            <alt>tastychicken</alt>
+            <image>img/tastychicken.png</image>
+        </produit>
+        <produit>
+            <nom>Wings</nom>
+            <description>10 wings nappées de sauce Buffalo ou Barbecue au choix.</description>
+            <prix>8.50</prix>
+            <stock>321</stock>
+            <alt>Wings</alt>
+            <image>img/Wings.png</image>
+        </produit>
+    </categorie>    
+    <categorie nom="pizza">
+        <produit>
+            <nom>Pizza Campione</nom>
+            <description>Sauce tomate,fromage,œuf, viande, champignons, pâte au choix.</description>
+            <prix>11.60</prix>
+            <stock>168</stock>
+            <alt>Campione</alt>
+            <image>img/Campione.png</image>
+        </produit>
+        <produit>
+            <nom>Pizza Frutti Di Mare</nom>
+            <description>Sauce tomate, fromage, fruits de mer, ail et persil, pâte au choix.</description>
+            <prix>18.50</prix>
+            <stock>159</stock>
+            <alt>fruttidemare</alt>
+            <image>img/fruttidemare.png</image>
+        </produit>
+        <produit>
+            <nom>Pizza Raclette</nom>
+            <description>Sauce tomate, Raclette, pomme de terre, poulet, pâte au choix.</description>
+            <prix>14.00</prix>
+            <stock>143</stock>
+            <alt>Raclette</alt>
+            <image>img/Raclette.png</image>
+        </produit>
+        <produit>
+            <nom>Pizza Végétarienne</nom>
+            <description>Sauce tomate, fromage, tomates, poivrons et olives, pâte au choix.</description>
+            <prix>17.75</prix>
+            <stock>177</stock>
+            <alt>Végétarienne</alt>
+            <image>img/vég.png</image>
+        </produit>
+        <produit>
+            <nom>Pizza Western</nom>
+            <description>Crème fraîche, fromage, poulet, poivrons, pâte au choix.</description>
+            <prix>15.50</prix>
+            <stock>238</stock>
+            <alt>western</alt>
+            <image>img/western.png</image>
+        </produit>
+    </categorie>
+</categories>

@@ -1,0 +1,58 @@
+
+a:link {
+    text-decoration: none;
+    color: darkblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: darkblue;
+}
+
+a:hover {
+    text-decoration: none;
+    color: darkblue;
+}
+
+a:active {
+    text-decoration: none;
+    color: darkblue;
+}
+h2{
+    color: black;
+}
+b{
+    color: darkblue;
+}
+footer{
+    font-size: 0.8rem;
+}
+.card{
+    margin-bottom: 2em;
+}
+.button-stock{
+    margin-bottom: 10px;
+    position: bottom;
+}
+.stock{
+    display: none;
+    margin-left: 8.125em;
+}
+
+.button-cart{
+    margin-bottom: 4px;
+}
+.button-add-cart{
+    margin-top: 6px;
+}
+.zoom {
+    padding: 25px;
+    transition: transform 0.5s;
+    width: 286px;
+    height: 230px;
+    
+  }
+  
+.zoom:hover {
+    transform: scale(1.3);
+  }
