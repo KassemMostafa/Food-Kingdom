@@ -1,0 +1,19 @@
+DROP DATABASE if EXISTS FoodKingdom;
+CREATE DATABASE IF NOT EXISTS FoodKingdom;
+
+USE foodkingdom
+
+DROP TABLE if EXISTS produit;
+DROP TABLE if EXISTS panier;
+
+CREATE TABLE IF NOT EXISTS produit(
+			id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+			nom VARCHAR(128),
+			couleur VARCHAR(5)
+			)
+
+CREATE TABLE IF NOT EXISTS panier(
+			id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+			produit VARCHAR(128),
+			prix INT,
+			qte INT)

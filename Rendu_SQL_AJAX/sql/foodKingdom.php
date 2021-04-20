@@ -31,12 +31,10 @@ $table=["produit","panier"];
 
 foreach ($table as $key => $value){
 	$Drop_Table=mysqli_query($DB,"DROP TABLE if EXISTS ".$key);
-	echo $value;
 	switch ($value) {
     case "produit":
-		echo "ok";
         $create_Table = mysqli_query($DB,"CREATE TABLE IF NOT EXISTS produit(
-			id INT PRIMARY KEY,
+			id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 			nom VARCHAR(128),
 			couleur VARCHAR(5)
 			)") or die(mysqli_error());
@@ -47,7 +45,6 @@ foreach ($table as $key => $value){
 			produit VARCHAR(128),
 			prix INT,
 			qte INT)") or die(mysqli_error());
-						echo "ok464";
 
         break;
     case 2:
