@@ -13,6 +13,26 @@ function deconnecterBDD($DBconn) {
             mysqli_close($DBconn);
         }
     }	
+
+function ecritureFile($text){
+	$fichier = fopen('script2.sql',"r+");
+	$flag=false;
+	
+	if ($fichier){
+	/*Tant que l'on est pas à la fin du fichier*/
+	while (!feof($fichier)){
+		/*On lit la ligne courante*/
+		$buffer = fgets($fichier);
+		if($buffer == $text)
+			$flag= true;
+	}
+	/*On ferme le fichier*/
+	if (!$flag)
+		fputs($fichier,$text);
+	fclose($fichier);
+	}
+}
+
 	
 if (session_status() === PHP_SESSION_DISABLED) {	//Version php >5.4.0 sinon session_id() == ''
 	echo "ok";
@@ -28,12 +48,10 @@ else{
 			$qte= $_SESSION['panier'][$key]['qte'];
 			echo $key;
 			///$texte1 = "INSERT INTO panier (produit,prix,qte) VALUES('".$key."', $prix,$qte)";
-			$texte2 = "INSERT INTO panier (produit,prix,qte) 
-			VALUES('".$key."',".$prix.",".$qte.")";
-			mysqli_query($DB,$texte2)
-			or die(mysqli_error($DB));
+			$texte2 = "INSERT INTO panier (produit,prix,qte) VALUES('".$key."',".$prix.",".$qte.")";
+			mysqli_query($DB,$texte2)or die(mysqli_error($DB));
+			ecritureFile($texte2.";\n");
 		}
-		
 	}
 /*
 
