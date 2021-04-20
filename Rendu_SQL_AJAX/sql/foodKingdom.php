@@ -37,14 +37,14 @@ foreach ($table as $key => $value){
 		echo "ok";
         $create_Table = mysqli_query($DB,"CREATE TABLE IF NOT EXISTS produit(
 			id INT PRIMARY KEY,
-			nom VARCHAR(9),
+			nom VARCHAR(128),
 			couleur VARCHAR(5)
 			)") or die(mysqli_error());
         break;
     case "panier":
         $create_Table1 = mysqli_query($DB,"CREATE TABLE IF NOT EXISTS panier(
 			id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			produit VARCHAR(9),
+			produit VARCHAR(128),
 			prix INT,
 			qte INT)") or die(mysqli_error());
 						echo "ok464";

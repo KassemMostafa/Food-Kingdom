@@ -20,19 +20,18 @@ if (session_status() === PHP_SESSION_DISABLED) {	//Version php >5.4.0 sinon sess
 
 else{
 	session_start();
-	$DB = connecterBDD("localhost","root","");
+	$DB = connecterBDD("localhost","root","","foodkingdom") or die (mysqli_error());
 	$use=mysqli_query($DB,"USE foodkingdom");
 	if( isset($_SESSION["panier"])){		//si isset == faux on doit verifier la condition?
 		foreach($_SESSION["panier"] as $key => $value){
 			$prix= $_SESSION['panier'][$key]['prix'];
 			$qte= $_SESSION['panier'][$key]['qte'];
 			echo $key;
-			 // $texte = "INSERT INTO panier (produit,prix,qte) 
-			 // VALUES('".$key."', $_SESSION['panier'][$key]['prix'],$_SESSION['panier'][$key]['qte'])");
+			///$texte1 = "INSERT INTO panier (produit,prix,qte) VALUES('".$key."', $prix,$qte)";
 			$texte2 = "INSERT INTO panier (produit,prix,qte) 
-			VALUES(".$key.",".$prix.",".$qte.")";
+			VALUES('".$key."',".$prix.",".$qte.")";
 			mysqli_query($DB,$texte2)
-			or die(mysqli_error());
+			or die(mysqli_error($DB));
 		}
 		
 	}
