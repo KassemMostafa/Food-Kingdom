@@ -42,7 +42,7 @@ else{
 	session_start();
 	$DB = connecterBDD("localhost","root","","foodkingdom") or die (mysqli_error());
 	$use=mysqli_query($DB,"USE foodkingdom");
-	if( isset($_SESSION["panier"])){		//si isset == faux on doit verifier la condition?
+	/*if( isset($_SESSION["panier"])){		//si isset == faux on doit verifier la condition?
 		foreach($_SESSION["panier"] as $key => $value){
 			$prix= $_SESSION['panier'][$key]['prix'];
 			$qte= $_SESSION['panier'][$key]['qte'];
@@ -52,7 +52,28 @@ else{
 			mysqli_query($DB,$texte2)or die(mysqli_error($DB));
 			ecritureFile($texte2.";\n");
 		}
+	}*/
+	// echo var_dump($_SESSION);
+	
+	foreach ($_SESSION as $key => $value){
+		// echo $key;
+		// echo var_dump($value);
+		if ($key == "panier"){
+		
+		}
+		else if ($key =="userConnect"){}
+		else{
+			foreach ($value as $key1 => $value1){
+				$texte = "INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('".$value1['alt']."','".$value1['nom']."','".$key."','".$value1['description']."','".$value1['prix']."',".$value1['stock'].",'".$value1['image']."')";
+				echo $texte;
+				echo "<br/>";
+				ecritureFile($texte.";\n");
+				
+			}
+		}
 	}
+	
+	
 /*
 
 	else{
