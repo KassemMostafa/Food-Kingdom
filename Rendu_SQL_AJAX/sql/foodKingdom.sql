@@ -5,7 +5,7 @@ USE foodkingdom;
 
 DROP TABLE if EXISTS produit;
 DROP TABLE if EXISTS panier;
--- DROP TABLE if EXISTS utilisateur;
+DROP TABLE if EXISTS utilisateur;
 
 CREATE TABLE IF NOT EXISTS produit (
 			alt VARCHAR(255) PRIMARY KEY NOT NULL,
@@ -17,18 +17,17 @@ CREATE TABLE IF NOT EXISTS produit (
 			image VARCHAR(255)
 			);
 
--- CREATE TABLE IF NOT EXISTS utilisateur(
-			-- idUtilisateur INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			-- user VARCHAR (128),
-			-- mdp VARCHAR (128)
-			-- );
+CREATE TABLE IF NOT EXISTS utilisateur(
+			pseudo VARCHAR (128) PRIMARY KEY NOT NULL,
+			mdp VARCHAR (128)
+			);
 
 CREATE TABLE IF NOT EXISTS panier(
 			id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			utilisateur VARCHAR (128),
-			idProduit VARCHAR(128),
+			user VARCHAR (255),
+			nomProduit VARCHAR(128),
 			prix INT,
 			qte INT,
-			FOREIGN KEY (idProduit) REFERENCES produit(idProduit)
+			FOREIGN KEY fk_utilisateur(user) REFERENCES utilisateur(pseudo),
 			);
 

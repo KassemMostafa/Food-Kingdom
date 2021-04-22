@@ -15,7 +15,7 @@ function deconnecterBDD($DBconn) {
     }	
 
 function ecritureFile($text){
-	$fichier = fopen('script2.sql',"r+");
+	$fichier = fopen('foodKingdomData.sql',"r+");
 	$flag=false;
 	
 	if ($fichier){
@@ -41,7 +41,7 @@ if (session_status() === PHP_SESSION_DISABLED) {	//Version php >5.4.0 sinon sess
 else{
 	session_start();
 		// echo var_dump($_SESSION);
-	$DB = connecterBDD("localhost","root","","foodkingdom") or die (mysqli_error());
+	$DB = connecterBDD("localhost","root","","foodkingdom") or die (mysqli_error("Erreur"));
 	$use=mysqli_query($DB,"USE foodkingdom");
 	
 	

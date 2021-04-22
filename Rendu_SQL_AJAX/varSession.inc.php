@@ -178,8 +178,15 @@
             'stock' => strval($produit->stock),
             'alt' => strval($produit->alt),
             'image' => strval($produit->image));
-            array_push($_SESSION[$nomCategorie], $product);
+            $existe = FALSE;
+            foreach($_SESSION[$nomCategorie] as $produit) {
+                if ($produit['alt'] == $product['alt']) {
+                    $existe = TRUE;
+                }
+            }
+            if (!$existe) {
+                array_push($_SESSION[$nomCategorie], $product);
+            }
         }
     }
-	//var_dump($_SESSION($produit);
 ?>
