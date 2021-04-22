@@ -48,6 +48,7 @@
 						<form method="POST" action="php/incrementation.php" enctype="multipart/form-data">
 							<div class="card bg-dark text-light" id="<?php echo $value["alt"]?>" style="width: 18rem";>
 								<img src = "<?php echo $value['image']?>" class = "card-img-top zoom" alt = "<?php echo $value["alt"] ?>">
+								<input name="alt" type="hidden" value="<?php echo $value["alt"]?>">
 								<input name="produit" type="hidden" value="<?php echo $value["nom"]?>">
 								<div class="card-body">
 									<h5 class="card-title"><?php echo $value["nom"] ?> </h5>

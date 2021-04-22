@@ -12,6 +12,7 @@ else{
 	//Verification variable
 	echo empty($_POST['produit']);
 	$produit = isset($_POST["produit"]) ? htmlspecialchars($_POST["produit"]) : NULL;
+	$alt = isset($_POST["alt"]) ? htmlspecialchars($_POST["alt"]) : NULL;
 	$qte = isset($_POST['qteProduit']) ? htmlspecialchars($_POST['qteProduit']) : NULL;
 	$prix = isset($_POST['prix']) ? htmlspecialchars($_POST['prix']) : NULL;
 	//echo $produit.$qte;
@@ -45,10 +46,11 @@ else{
 			//echo $value;
 
 		}
-		if($flag == false)
-			$_SESSION['panier'][$produit] = ["qte" => $qte,"prix" => $prix];
+		if($flag == false)// le produit n'est pas dans le panier
+			$_SESSION['panier'][$produit] = ["qte" => $qte,"prix" => $prix,"alt" => $alt];
 			//$_SESSION['panier'][$produit] = $qte;					//important
 		//array_push($_SESSION['panier'],$produitpanier);
+		
 		
 		var_dump($_SESSION['panier']);
 		//echo $_SESSION[$produit];

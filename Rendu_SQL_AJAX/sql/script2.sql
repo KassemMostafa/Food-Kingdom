@@ -1,7 +1,4 @@
-USE foodkingdom;
--- INSERT INTO panier (produit,prix,qte) VALUES('Cheeseburger',3.5,4);
--- INSERT INTO panier (produit,prix,qte) VALUES('Double Beef BBQ',4.75,2);
--- INSERT INTO panier (produit,prix,qte) VALUES('Hamburger',3,3);
+USE foodkingdom; --ligne a ne pas supprimer
 INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('hamburger','Hamburger','burger','Pain spécial, steak haché, oignon, cornichon avec une sauce moutarde et ketchup.','3',143,'img/hamburger.png');
 INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('cheeseburger','Cheeseburger','burger','Pain spécial, steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu.','3.5',242,'img/cheeseburger.png');
 INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('cheesybacon','Cheesy Bacon','burger','Pain spécial, double steak haché, oignon, cornichon, moutarde, ketchup, fromage fondu, bacon.','5',223,'img/cheesybacon.png');
@@ -29,3 +26,5 @@ INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('C
 INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('fruttidemare','Pizza Frutti Di Mare','pizza','Sauce tomate, fromage, fruits de mer, ail et persil, pâte au choix.','18.50',159,'img/fruttidemare.png');
 INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('Raclette','Pizza Raclette','pizza','Sauce tomate, Raclette, pomme de terre, poulet, pâte au choix.','14.00',143,'img/Raclette.png');
 INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('western','Pizza Western','pizza','Crème fraîche, fromage, poulet, poivrons, pâte au choix.','15.50',238,'img/western.png');
+INSERT INTO panier (utilisateur,idproduit,prix,qte) VALUES('hamburger','Alex',3,8);
+INSERT INTO panier (utilisateur,idproduit,prix,qte) VALUES('cheeseburger','Alex',3.5,8);
