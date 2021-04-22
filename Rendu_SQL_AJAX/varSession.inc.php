@@ -199,8 +199,9 @@
                 fwrite($fsql, $sql);
             }
         }
+        fclose($fsql);
     }
-    fclose($fsql);
+    
 
 
 ?>
