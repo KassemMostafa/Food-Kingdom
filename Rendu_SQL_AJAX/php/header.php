@@ -1,5 +1,6 @@
 <?php 
 	require_once "varSession.inc.php";
+
 	if (!isset($currentpage) || $currentpage == 'index' || $currentpage == 'contact' || $currentpage == 'connexion' || $currentpage == 'panier') {
 		$existe = true;
 	} else {
