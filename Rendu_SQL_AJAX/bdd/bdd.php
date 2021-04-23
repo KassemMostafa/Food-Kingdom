@@ -62,4 +62,19 @@
 
     }
 
+    function fetchProduit($dbConn, $nomCategorie){ //select * from produit where categorie like $nomCategorie
+        try {
+            $query = $dbConn->prepare('SELECT nom, description, prix, stock, image FROM produit WHERE categorie LIKE :categorie');
+            $query->bindValue(':categorie', $nomCategorie);
+            $query->execute();
+            $res = $query->fetchall(PDO::FETCH_ASSOC);
+            var_dump($res);
+        }
+        catch (Exception $error)
+        {
+            die('Erreur : ' . $error->getMessage());
+        }
+    }
+
+
 ?>

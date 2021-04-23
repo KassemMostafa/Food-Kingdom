@@ -28,6 +28,7 @@
       $_SESSION["firstConnetion"] = TRUE;
       $bdd = connexion();
       insertionProduitsDB($bdd);
+      $bdd = deconnexion();
     }
     
   ?>
