@@ -46,6 +46,7 @@
 					include("bdd\bdd.php");
 					$dbConn = connexion();
 					$produits = fetchProduits($dbConn, $_GET['cat']);
+					$dbConn = deconnexion();
 					foreach ($produits as $value) {
 				?>
 					

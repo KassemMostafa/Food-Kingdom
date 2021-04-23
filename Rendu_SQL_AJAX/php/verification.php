@@ -14,9 +14,11 @@ else{
 	
 	$db = connexion();
 	if (!verifyLogin($db, $username, $password)) {
+		$db = deconnexion();
 		header("Location: /connexion.php");
 
 	} else {
+		$db = deconnexion();
 		session_start();
 		$_SESSION["userConnect"]=$username;
 		header("Location: /index.php");	

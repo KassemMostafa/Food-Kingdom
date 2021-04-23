@@ -121,6 +121,24 @@
         }
     }
 
+    function fetchShoppingCart($dbConn, $user) {
+        try {
+            if ($user == NULL) {
+                $query = $dbConn->prepare('SELECT nomProduit, prix, qte FROM panier WHERE user is NULL');
+                $query->execute();
+            } else {
+                $query = $dbConn->prepare('SELECT nomProduit, prix, qte FROM panier WHERE user LIKE :user');
+                $query->bindValue(':user', $user);
+                $query->execute();
+            }
+            $res = $query->fetchall(PDO::FETCH_ASSOC);
+            return $res;
+        }
+        catch (Exception $error)
+        {
+            die('Erreur: ' .$error->getMessage());
+        }
+    }
     
 
 ?>

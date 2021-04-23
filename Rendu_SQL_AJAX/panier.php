@@ -16,6 +16,7 @@
     <?php 
         $currentpage = "panier";
         include("php\header.php"); 
+		include("bdd\bdd.php");
     ?>
 </header>
 
@@ -34,26 +35,33 @@
 					<td>Prix Unitaire</td>
 					<td>Prix Total</td>
 					</tr>
-					<?php
-						$sum=0;
-						foreach ($_SESSION["panier"] as $key => $value){
-							echo '<tr>';
-							echo '<td>'.$key . "</td>";
-							echo '<td>'.$value['qte'] . "</td>";
-							echo '<td>'.$value['prix'] . "</td>";;
-							echo '<td>'.$value['qte']*$value['prix'] . "</td>";
-							$sum=$sum+($value['qte']*$value['prix']);
-							echo '<br/>';
-							echo '</tr>';
-						}
+				<?php
+					$bdd = connexion();
+					if (isset($_SESSION["userConnect"])) {
+						$user = $_SESSION["userConnect"];
+					} else {
+						$user = NULL;
+					} 
+					$cart = fetchShoppingCart($bdd, $user);
+					$sum=0;
+					foreach ($cart as $key => $value){
 						echo '<tr>';
-						echo '<td>'."</td>";
-						echo '<td>'."</td>";
-						echo '<td>'."</td>";;
-						echo '<td>'.$sum."</td>";;							
+						echo '<td>'.$value['nomProduit'] . "</td>";
+						echo '<td>'.$value['qte'] . "</td>";
+						echo '<td>'.$value['prix'] . "</td>";;
+						echo '<td>'.$value['qte']*$value['prix'] . "</td>";
+						$sum=$sum+($value['qte']*$value['prix']);
 						echo '<br/>';
 						echo '</tr>';
-					?>
+					}
+					echo '<tr>';
+					echo '<td>'."</td>";
+					echo '<td>'."</td>";
+					echo '<td>'."</td>";;
+					echo '<td>'.$sum."</td>";;							
+					echo '<br/>';
+					echo '</tr>';
+				?>
 					</table>
 					<button class="btn btn-danger">payer</button>
 				</aside>
