@@ -1,6 +1,8 @@
 ﻿<?php 
   session_start();
   
+
+  
 ?>
 <!DOCTYPE html>
 
@@ -21,6 +23,13 @@
   <?php
     $currentpage = "index";
     include("php/header.php"); 
+    include("bdd\bdd.php");
+    if (!isset($_SESSION["firstConnection"])) {
+      $_SESSION["firstConnetion"] = TRUE;
+      $bdd = connexion();
+      insertionProduitsDB($bdd);
+    }
+    
   ?>
 </header>
 <body>

@@ -10,7 +10,7 @@ DROP TABLE if EXISTS utilisateur;
 CREATE TABLE IF NOT EXISTS produit (
 			alt VARCHAR(200) PRIMARY KEY NOT NULL,
 			nom VARCHAR (255),
-			categories VARCHAR (255),
+			categorie VARCHAR (255),
 			description VARCHAR(255),
 			prix VARCHAR(255),
 			stock INT,

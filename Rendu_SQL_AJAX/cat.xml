@@ -87,7 +87,7 @@
     <categorie nom="pizza">
         <produit>
             <nom>Pizza Campione</nom>
-            <description>Sauce tomate,fromage,œuf, viande, champignons, pâte au choix.</description>
+            <description>Sauce tomate,fromage,oeuf, viande, champignons, pâte au choix.</description>
             <prix>11.60</prix>
             <stock>168</stock>
             <alt>Campione</alt>

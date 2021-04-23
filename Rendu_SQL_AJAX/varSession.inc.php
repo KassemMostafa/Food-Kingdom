@@ -84,7 +84,7 @@
 
     $campione = array(
         'nom' => 'Pizza Campione',
-        'description' => 'Sauce tomate,fromage,œuf, viande, champignons, pâte au choix.',
+        'description' => 'Sauce tomate,fromage,oeuf, viande, champignons, pâte au choix.',
         'prix' => 11.60,
         'stock' => 168,
         'alt' => 'Campione',
@@ -189,18 +189,7 @@
             }
         }
     }
-    if (!isset($_SESSION["fileRead"])) {
-        $_SESSION["fileRead"] = TRUE;
-        $fsql = fopen("sql\\foodKingdomData.sql",'w+');
-        foreach($xml->categorie as $categorie) {
-            $nomCategorie = strval($categorie["nom"]);
-            foreach ($categorie as $produit) {
-                $sql = "INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('".strval($produit->alt)."','".strval($produit->nom)."','".$nomCategorie."','".strval($produit->description)."','".strval($produit->prix)."',".strval($produit->stock).",'".strval($produit->image)."');\n";
-                fwrite($fsql, $sql);
-            }
-        }
-        fclose($fsql);
-    }
+   
     
 
 

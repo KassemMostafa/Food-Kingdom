@@ -3,7 +3,7 @@
 
     $server = "localhost";
     $dbName = "foodkingdom";
-    $chipset = "utf8";
+    $charset = "utf8mb4";
     $port = 3306;
     $user = "root";
     $pass = "";
