@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 
 </head>
-<!-- Entete       Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
+<!-- Entete   Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
 <header>
 
   <?php
@@ -25,10 +25,16 @@
     include("php/header.php"); 
     include("bdd\bdd.php");
     if (!isset($_SESSION["firstConnection"])) {
-      $_SESSION["firstConnetion"] = TRUE;
+      $_SESSION["firstConnection"] = TRUE;
       $bdd = connexion();
       insertionProduitsDB($bdd);
+      insertUsers($bdd);
       $bdd = deconnexion();
+      if (isset($_SESSION["userConnect"])) {
+        echo "loggedin";
+      } else {
+        echo "notloggedin";
+      }
     }
     
   ?>

@@ -34,7 +34,7 @@
 						<input type="text" name="username" placeholder="Identifiant" />
 						<input type="password" name="password" placeholder="Mot de passe" />
 						<input  type="submit" name="signup_submit" value="Connexion" /><br>
-					</form>
+					 </form>
       <!--<a class="inscription" href="inscription.html" onclick="openForm4()" >Connexion</a>-->	
 					</div>    
                 </aside>
@@ -49,6 +49,4 @@
 <footer>
 <?php include("php\\footer.php");?>
 </footer>
-
-
 </html>

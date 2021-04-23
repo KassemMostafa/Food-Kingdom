@@ -62,6 +62,54 @@
 
     }
 
+
+
+    function insertUsers($dbConn) {
+        $file = 'php\utilisateur.json'; 
+	    $data = file_get_contents($file); 
+	    $users = json_decode($data);
+        var_dump($users[0]->user);
+        try {
+            $query = $dbConn->prepare("INSERT INTO utilisateur (pseudo, mdp) VALUES (:pseudo, :mdp)");
+            foreach($users as $user) {
+                $pseudo = strval($user->user);
+                $mdp = password_hash(strval($user->mdp),PASSWORD_DEFAULT);
+                $query->execute(array(
+                    'pseudo' => $pseudo,
+                    'mdp' => $mdp
+                ));
+            }
+            
+        }
+        catch (Exception $error)
+        {
+            die('Erreur : ' . $error->getMessage());
+        }
+    }
+    
+    function verifyLogin($dbConn, $user, $pass) {
+        try {
+            $verif = $dbConn->prepare('SELECT pseudo FROM utilisateur WHERE pseudo LIKE :pseudo');
+            $verif->bindValue(':pseudo', $user);
+            $verif->execute();
+            $res = $verif->fetchall();
+            if (count($res) == 0) {
+                return false;
+            } else {
+                $verif = $dbConn->prepare('SELECT mdp FROM utilisateur WHERE pseudo LIKE :pseudo');
+                $verif->bindValue(':pseudo', $user);
+                $verif->execute();
+                $res = $verif->fetchall(PDO::FETCH_ASSOC);
+                $hash = strval($res[0]['mdp']);
+                return password_verify($pass, $hash);
+            }
+        }
+        catch (Exception $error)
+        {
+            die('Erreur : ' . $error->getMessage());
+        }
+    }
+
     function fetchProduits($dbConn, $nomCategorie){ //select * from produit where categorie like $nomCategorie
         try {
             $query = $dbConn->prepare('SELECT alt, nom, description, prix, stock, image FROM produit WHERE categorie LIKE :categorie');
@@ -75,6 +123,5 @@
             die('Erreur : ' . $error->getMessage());
         }
     }
-
 
 ?>
