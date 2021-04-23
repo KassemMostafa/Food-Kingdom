@@ -195,7 +195,7 @@
         foreach($xml->categorie as $categorie) {
             $nomCategorie = strval($categorie["nom"]);
             foreach ($categorie as $produit) {
-                $sql = "INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('".strval($produit->alt)."','".strval($produit->nom)."','".$nomCategorie."','".strval($produit->description)."','".strval($produit->prix)."',".strval($produit->stock).",'".strval($produit->image)."')\n";
+                $sql = "INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('".strval($produit->alt)."','".strval($produit->nom)."','".$nomCategorie."','".strval($produit->description)."','".strval($produit->prix)."',".strval($produit->stock).",'".strval($produit->image)."');\n";
                 fwrite($fsql, $sql);
             }
         }
