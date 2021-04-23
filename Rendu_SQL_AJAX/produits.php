@@ -18,6 +18,7 @@
 	<?php
 		$currentpage = $_GET['cat'];
 		include("php/header.php");
+		
 	?>
 </header>
 	<!-- Menu vertical -->
@@ -41,13 +42,17 @@
 			<br><br>
 		<div class = "container">
 			<div class="row justify-content-md-center">
-				<?php foreach ($_SESSION[$_GET['cat']] as $value) {
+				<?php
+					include("bdd\bdd.php");
+					$dbConn = connexion();
+					$produits = fetchProduits($dbConn, $_GET['cat']);
+					foreach ($produits as $value) {
 				?>
 					
 					<div class="col col-md-auto">
 						<form method="POST" action="php/incrementation.php" enctype="multipart/form-data">
-							<div class="card bg-dark text-light" id="<?php echo $value["alt"]?>" style="width: 18rem";>
-								<img src = "<?php echo $value['image']?>" class = "card-img-top zoom" alt = "<?php echo $value["alt"] ?>">
+							<div class="card bg-dark text-light" id="<?php echo $produit["alt"]?>" style="width: 18rem";>
+								<img src = "<?php echo $produit['image']?>" class = "card-img-top zoom" alt = "<?php echo $produit["alt"] ?>">
 								<input name="alt" type="hidden" value="<?php echo $value["alt"]?>">
 								<input name="produit" type="hidden" value="<?php echo $value["nom"]?>">
 								<div class="card-body">
