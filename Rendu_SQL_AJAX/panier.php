@@ -29,10 +29,10 @@
                 <aside class="text-center">
 					<table class="table">
 					<tr>
-					<td>produit</td>
-					<td>quantite</td>
-					<td>prix unitaire</td>
-					<td>prix total</td>
+					<td>Produit</td>
+					<td>Quantite</td>
+					<td>Prix Unitaire</td>
+					<td>Prix Total</td>
 					</tr>
 					<?php
 						$sum=0;

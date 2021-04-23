@@ -9,7 +9,7 @@ DROP TABLE if EXISTS utilisateur;
 
 CREATE TABLE IF NOT EXISTS produit (
 			alt VARCHAR(200) PRIMARY KEY NOT NULL,
-			nom VARCHAR (255),
+			nom VARCHAR (255) ,
 			categorie VARCHAR (255),
 			description VARCHAR(255),
 			prix VARCHAR(255),
@@ -19,12 +19,13 @@ CREATE TABLE IF NOT EXISTS produit (
 
 CREATE TABLE IF NOT EXISTS utilisateur(
 			pseudo VARCHAR (128) PRIMARY KEY NOT NULL,
-			mdp VARCHAR (128) NOT NULL
+			mdp VARCHAR (128) NOT NULL,
+			admin BOOLEAN Default 0
 			);
 
 CREATE TABLE IF NOT EXISTS panier(
 			id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-			user VARCHAR (255),
+			user VARCHAR (255) DEFAULT NULL,
 			nomProduit VARCHAR(255),
 			prix INT,
 			qte INT,

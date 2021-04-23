@@ -56,16 +56,13 @@
 		  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 			<ul class="navbar-nav justify-content-center">
 <?php
+			
 			echo '<a ';
 			if(isset($_SESSION["userConnect"])){
 				//echo '<li>';
 				echo '<a class="nav-link" href="php/deconnexion.php">Deconnexion</a>';	//ne fonctionne pas mais a remplacer par une page php ou javascript pour deco session   (en php session_destroy();)
 				//echo '</li>';
-				if($currentpage == "panier")
-					echo '<a class="nav-link active" aria-current="page"';
-				else
-					echo '<a class="nav-link"';
-				echo 'aria-current="page" href="panier.php">panier</a>';
+				
 			}
 			else{
 				if($currentpage == "connexion") 
@@ -74,8 +71,12 @@
 					echo '<a class = "nav-link"';
 				echo ' href="connexion.php">Connexion</a>';
 			}	
+			if($currentpage == "panier")
+					echo '<a class="nav-link active" aria-current="page"';
+				else
+					echo '<a class="nav-link"';
+				echo 'aria-current="page" href="panier.php">Panier</a>';
 		?>
-		
 			</ul>
 		  </div>
 		</div>

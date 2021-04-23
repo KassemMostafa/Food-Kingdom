@@ -62,13 +62,10 @@
 
     }
 
-
-
     function insertUsers($dbConn) {
         $file = 'php\utilisateur.json'; 
 	    $data = file_get_contents($file); 
 	    $users = json_decode($data);
-        var_dump($users[0]->user);
         try {
             $query = $dbConn->prepare("INSERT INTO utilisateur (pseudo, mdp) VALUES (:pseudo, :mdp)");
             foreach($users as $user) {
@@ -123,5 +120,7 @@
             die('Erreur : ' . $error->getMessage());
         }
     }
+
+    
 
 ?>

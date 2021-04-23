@@ -44,8 +44,8 @@ function down(divID,button) {
         x.getElementsByClassName("increase")[0].disabled = false;
     }
     x.getElementsByClassName("num")[0].value = parseInt(x.getElementsByClassName("num")[0].value) - 1;
-    if (x.getElementsByClassName("num")[0].value <= 0) {
-        document.getElementsByClassName("num")[0].value = 0;
+    if (x.getElementsByClassName("num")[0].value <= 1) {
+        document.getElementsByClassName("num")[0].value = 1;
         button.disabled = true;
     }
 }

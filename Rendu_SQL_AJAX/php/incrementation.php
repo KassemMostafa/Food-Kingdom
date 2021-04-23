@@ -1,72 +1,56 @@
 <?php
-//phpinfo();
-//echo (empty($_POST['produit']));
-
-if (session_status() === PHP_SESSION_DISABLED) {	//Version php >5.4.0 sinon session_id() == ''
-//if(session_id() == ''  ){
-  //location('';
-	echo "ok";
-}
-else{
 	session_start();
-	//Verification variable
-	echo empty($_POST['produit']);
+	include("../bdd/bdd.php");
+
+
+
+
+
 	$produit = isset($_POST["produit"]) ? htmlspecialchars($_POST["produit"]) : NULL;
 	$alt = isset($_POST["alt"]) ? htmlspecialchars($_POST["alt"]) : NULL;
 	$qte = isset($_POST['qteProduit']) ? htmlspecialchars($_POST['qteProduit']) : NULL;
 	$prix = isset($_POST['prix']) ? htmlspecialchars($_POST['prix']) : NULL;
-	//echo $produit.$qte;
+	
+	if (isset($_SESSION["userConnect"])) {
+		$user = $_SESSION["userConnect"];
+	} else {
+		$user = NULL;
+	} 
+	
+	//premier truc, vérifier que le produit ajouté n'est pas déjà lié dans la base;
 
-	//controle variable, ajout au variable de session
-	if (empty($_POST['qteProduit'])){
-		foreach($_SESSION["panier"] as $key => $value){
-			if ($key ==$produit){
-				unset($_SESSION["panier"][$key]);
-			}
+	$bdd = connexion();
+	try {
+		$verif = $bdd->prepare("SELECT * FROM panier WHERE user like :user AND nomProduit LIKE :nomProduit");
+		$verif->bindValue(':user', $user);
+		$verif->bindValue(':nomProduit', $produit);
+		$verif->execute();
+		$res = $verif->fetchall(PDO::FETCH_ASSOC);
+		if (count($res) == 0) {
+			//ajout nouveau produit dans panier
+			$query = $bdd->prepare("INSERT INTO panier (user, nomProduit, prix, qte) VALUES (:user, :nomProduit, :prix, :qte)");
+			$query->execute(array(
+				'user' => $user,
+				'nomProduit' => $produit,
+				'prix' => $prix,
+				'qte' => $qte));
+		} else {
+			//ajout quantité dans panier
+			$query = $bdd->prepare("UPDATE panier
+			SET qte = qte + :qte
+			WHERE user LIKE :user AND nomProduit LIKE :nomProduit");
+			$res = $query->execute(array(
+				'qte' => $qte,
+				'user' => $user,
+				'nomProduit' => $produit
+			));
+			if ($res === false) {
+				var_dump($query->errorInfo());
+			} 
 		}
 	}
-	else{
-		//$_SESSION[$produit] = $produit;
-		//$_SESSION["qte".$produit] = $qte;
-		$produitpanier = [$produit => $qte];
-		//echo $produit;
-		//$tab = $_SESSION['panier'];
-		$flag = false;
-		foreach($_SESSION["panier"] as $key => $value){
-			//echo "{$key} => {$value[0]} ";		//le nomproduit
-			//echo "{$key} => {$value[1]} ";
-			//echo $value[0] ==$produit;
-			if ($key ==$produit){		// si on trouve le produit dans le panier
-				//$value = array($value[0],$qte);
-				//$value = array_replace_recursive($value,array("qte" => $qte));
-				$_SESSION["panier"][$key]["qte"]= $qte;
-				$flag=true;
-			}
-			//echo $_SESSION[$key][1];
-			//echo $value;
-
-		}
-		if($flag == false)// le produit n'est pas dans le panier
-			$_SESSION['panier'][$produit] = ["qte" => $qte,"prix" => $prix,"alt" => $alt];
-			//$_SESSION['panier'][$produit] = $qte;					//important
-		//array_push($_SESSION['panier'],$produitpanier);
-		
-		
-		var_dump($_SESSION['panier']);
-		//echo $_SESSION[$produit];
-		//echo "banane";
-		echo "<br/>";
-		//echo $_SESSION["qte".$produit];
-		//header("location:".  $_SERVER['HTTP_REFERER']); 
-
+	catch (Exception $error)
+	{
+		die('Erreur : ' . $error->getMessage());
 	}
-}
-		header("location:".  $_SERVER['HTTP_REFERER']); 
-
-
-//<?php/* if(isset($_SESSION[$value["nom"]])){echo $_SESSION[$value["nom"]."qte"];} else{echo 0;}*/
-
-// if(isset($_SESSION[$value["nom"]]))
-	//{echo $_SESSION[$value["nom"]."qte"];} 
-//else{echo 0;}
 ?>

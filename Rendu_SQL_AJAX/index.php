@@ -30,11 +30,7 @@
       insertionProduitsDB($bdd);
       insertUsers($bdd);
       $bdd = deconnexion();
-      if (isset($_SESSION["userConnect"])) {
-        echo "loggedin";
-      } else {
-        echo "notloggedin";
-      }
+      
     }
     
   ?>
