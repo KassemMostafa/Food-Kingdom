@@ -21,17 +21,18 @@
 <header>
 
   <?php
+    
     $currentpage = "index";
     include("php/header.php"); 
     include("bdd\bdd.php");
-    if (isset($_SESSION["firstConnection"])) {
-      $_SESSION["firstConnection"] = TRUE;
+    if (!isset($_SESSION["firstConnection"])) {
+      $_SESSION["firstConnection"] = "TRUE";
       $bdd = connexion();
+      initPanierNoLogin($bdd);
       insertionProduitsDB($bdd);
       if (UserTableIsEmpty($bdd)) {
         insertUsers($bdd);
       }
-      
       $bdd = deconnexion();
       
     }

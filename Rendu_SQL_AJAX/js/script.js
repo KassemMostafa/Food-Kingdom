@@ -50,6 +50,23 @@ function down(divID,button) {
     }
 }
 
+function stockUpdate(divID) {
+
+    let XMLHR = new XMLHttpRequest();
+    let x = document.querySelector("#" + divID);
+    let input = x.getElementsByClassName("num")[0];
+    let stock = x.getElementsByClassName("stock-quantity")[0];
+    let nom = input.closest("form").children[0].children[2].value;
+
+    XMLHR.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            x.getElementsByClassName("stock-quantity")[0].innerHTML = this.responseText;
+        }
+    }
+        XMLHR.open("GET", "/php/modifyStock.php?nomProduit=" + nom +"&stock=" + stock,true);
+        XMLHR.send();
+}      
+
 function upPanier(max, productID) {
     let input = document.getElementById("panierID" + productID);
     let increase = document.getElementById("panierID" + productID + "increase");
@@ -79,4 +96,6 @@ function downPanier(productID) {
         input.value = parseInt(input.value) - 1;
     }
 }
+
+    
 

@@ -1,5 +1,5 @@
 DROP DATABASE if EXISTS FoodKingdom;
-CREATE DATABASE IF NOT EXISTS FoodKingdom CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci;
+CREATE DATABASE IF NOT EXISTS FoodKingdom CHARACTER SET utf8mb4;
 
 USE Foodkingdom;
 
@@ -8,7 +8,7 @@ DROP TABLE if EXISTS panier;
 DROP TABLE if EXISTS utilisateur;
 
 CREATE TABLE IF NOT EXISTS produit (
-			alt VARCHAR(200) PRIMARY KEY NOT NULL,
+			alt VARCHAR(173) PRIMARY KEY NOT NULL,
 			nom VARCHAR (255) ,
 			categorie VARCHAR (255),
 			description VARCHAR(255),
@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS panier(
 			idProduit VARCHAR(255),
 			prix INT,
 			qte INT,
-			FOREIGN KEY fk_utilisateur(user) REFERENCES utilisateur(pseudo),
-			FOREIGN KEY fk_produit(idProduit) REFERENCES produit(alt)
+			FOREIGN KEY fk_utilisateur(user) REFERENCES utilisateur(pseudo)
 			);
 

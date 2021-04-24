@@ -172,6 +172,16 @@
         }
     }
     
+    function initPanierNoLogin($dbConn) {
+        try {
+            $query = $dbConn->prepare('DELETE from panier WHERE user is null');
+            $query->execute();
+        }
+        catch (Exception $error)
+        {
+            die('Erreur: ' .$error->getMessage());
+        }
+    }
 
 
 ?>

@@ -46,6 +46,7 @@
             }
         }
         header("Location: /panier.php");
+        $bddConn = NULL;
     } catch (Exception $error)
     {
         die('Erreur: ' .$error->getMessage());

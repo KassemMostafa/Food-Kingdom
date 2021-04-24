@@ -1,6 +1,5 @@
 <?php 
 	require_once "varSession.inc.php";
-	header( 'content-type: text/html; charset=utf-8' );
 
 	if (!isset($currentpage) || $currentpage == 'index' || $currentpage == 'contact' || $currentpage == 'connexion' || $currentpage == 'panier') {
 		$existe = true;

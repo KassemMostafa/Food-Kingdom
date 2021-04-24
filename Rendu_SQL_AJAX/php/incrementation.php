@@ -21,11 +21,16 @@
 
 	$bdd = connexion();
 	try {
-		$verif = $bdd->prepare("SELECT * FROM panier WHERE user like :user AND nomProduit LIKE :nomProduit");
-		$verif->bindValue(':user', $user);
+		if (is_null($user)) {
+			$verif = $bdd->prepare("SELECT * FROM panier WHERE user is NULL AND nomProduit LIKE :nomProduit");
+		} else {
+			$verif = $bdd->prepare("SELECT * FROM panier WHERE user like :user AND nomProduit LIKE :nomProduit");
+			$verif->bindValue(':user', $user);
+		}
 		$verif->bindValue(':nomProduit', $produit);
 		$verif->execute();
 		$res = $verif->fetchall(PDO::FETCH_ASSOC);
+		var_dump($res);
 		if (count($res) == 0) {
 			//ajout nouveau produit dans panier
 			$query = $bdd->prepare("INSERT INTO panier (user, nomProduit, prix, qte) VALUES (:user, :nomProduit, :prix, :qte)");
@@ -36,14 +41,18 @@
 				'qte' => $qte));
 		} else {
 			//ajout quantité dans panier
-			$query = $bdd->prepare("UPDATE panier
-			SET qte = qte + :qte
-			WHERE user LIKE :user AND nomProduit LIKE :nomProduit");
-			$res = $query->execute(array(
-				'qte' => $qte,
-				'user' => $user,
-				'nomProduit' => $produit
-			));
+			if (is_null($user)) {
+				$query = $bdd->prepare("UPDATE panier SET qte = qte + :qte
+				WHERE user is NULL and nomProduit LIKE :nomProduit");
+			} else {
+				$query = $bdd->prepare("UPDATE panier
+				SET qte = qte + :qte
+				WHERE user LIKE :user AND nomProduit LIKE :nomProduit");
+				$query->bindValue(':user', $user);
+			}
+			$query->bindValue(':qte', $qte);
+			$query->bindValue(':nomProduit', $produit);
+			$res = $query->execute();
 			if ($res === false) {
 				var_dump($query->errorInfo());
 			} 

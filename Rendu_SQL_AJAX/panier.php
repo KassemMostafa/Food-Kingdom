@@ -32,7 +32,7 @@
 					<table class="table">
 					<tr>
 					<td>Produit</td>
-					<td>Quantite</td>
+					<td>Quantité</td>
 					<td>Prix Unitaire</td>
 					<td>Prix Total</td>
 					</tr>
@@ -45,12 +45,9 @@
 					} 
 					
 					//TODO 
-					//
-					//1- add + and - buttons to modify cart in database,done 
-					// 2- add supprimer button to delete a product from shopping cart
-					// 3- on first session start delete NULL user panier 
-					// 4- on disconnect, unset user variable
-					// 5- Ajax
+					// 5- Ajax to modify stock on add product
+					// 6- modify stock on product delete and modify no ajax needed
+					
 					$cart = fetchShoppingCart($bdd, $user);
 					
 					$sum=0;
@@ -97,8 +94,6 @@
             </div>
         </div>
     </div>
-
-    <!--<script type="text/javascript" src="js/regExForm.js" async></script>-->
 </body>
 <!-- Pied de page -->
 <footer>

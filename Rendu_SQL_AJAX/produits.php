@@ -49,9 +49,8 @@
 					$dbConn = deconnexion();
 					foreach ($produits as $value) {
 				?>
-					
 					<div class="col col-md-auto">
-						<form method="POST" action="php/incrementation.php" enctype="multipart/form-data">
+						<form method="POST" action="php/incrementation.php"  enctype="multipart/form-data">
 							<div class="card bg-dark text-light" id="<?php echo $value["alt"]?>" style="width: 18rem";>
 								<img src = "<?php echo $value['image']?>" class = "card-img-top zoom" alt = "<?php echo $value["alt"] ?>">
 								<input name="alt" type="hidden" value="<?php echo $value["alt"]?>">
@@ -63,13 +62,13 @@
 								</div>
 								<div class="card-body">
 									
-										<p> <?php echo $value["prix"]?>€<span class= "stock">Stock : <span class ="stock-quantity"> <?php echo $value['stock'] ?></span></span></p>
+										<p> <?php echo $value["prix"]?>€<span class= "stock">Stock : <span class ="stock-quantity"><?php echo $value['stock'] ?></span></span></p>
 										<input name="prix" type="hidden" value="<?php echo $value["prix"]?>">
 										<p> Quantité : </p>	
 										<button type="button" disabled class="btn btn-outline-light btn-sm button-cart decrease" onclick="down('<?php echo $value['alt']?>',this)">-</button>
 										<input type="num" class="num" value= "1" size="1" name="qteProduit" readonly />
 										<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
-										<button type="submit"  <?php if ($value['stock'] == 0) { echo 'disabled';} ?>class="btn btn-outline-light btn-sm button-add-cart  "> Ajouter au panier</button>
+										<button type="submit"  <?php if ($value['stock'] == 0) { echo 'disabled';} ?>class="btn btn-outline-light btn-sm button-add-cart  " onclick="stockUpdate('<?php echo $value['alt']?>')"> Ajouter au panier</button>
 									
 								</div>
 							</div>

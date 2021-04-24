@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	session_destroy();	//detruit la session
+	unset($_SESSION['userConnect']);
 	header("Location: /index.php");
-
 ?>

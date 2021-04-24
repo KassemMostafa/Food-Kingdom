@@ -22,7 +22,6 @@ else{
 		session_start();
 		$_SESSION["userConnect"]=$username;
 		header("Location: /index.php");	
-		$_SESSION["panier"] = [];
 	}			
 }	
 
