@@ -18,9 +18,14 @@ else{
 		header("Location: /connexion.php");
 
 	} else {
-		$db = deconnexion();
+		
 		session_start();
 		$_SESSION["userConnect"]=$username;
+		if (verifyAdmin($db, $username)) {
+			  $_SESSION["admin"] = "true";
+	
+		}
+		$db = deconnexion();
 		header("Location: /index.php");	
 	}			
 }	

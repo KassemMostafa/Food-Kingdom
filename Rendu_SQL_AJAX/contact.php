@@ -39,7 +39,7 @@
                         <small class="text-danger"></small><br>
                         
                         <label for="email">Adresse Mail:</label><br>
-                        <input type="email" name="email"id="email" required value="zaea@ez.fr"><br>
+                        <input type="email" name="email"id="email" required value=""><br>
                         <label for="genre">Genre :</label><br>
                         <div class="container">
                             <div class="row align-self-center">

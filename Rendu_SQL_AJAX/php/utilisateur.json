@@ -1,15 +1,19 @@
 [{
   "user" : "Alex",
-  "mdp" :  "25"
+  "mdp" :  "25",
+  "admin" : 0
 }, {
   "user" : "Jean",
-  "mdp" :  "22"
+  "mdp" :  "22",
+  "admin" : 0
 }, {
   "user" : "Pierre",
-  "mdp" :  "aaa"
+  "mdp" :  "aaa",
+  "admin" : 0
 }, {
   "user" : "Paul",
-  "mdp" :  "aaa"
+  "mdp" :  "aaa",
+  "admin" : 0
 }, {
   "user" : "admin",
   "mdp" : "admin",

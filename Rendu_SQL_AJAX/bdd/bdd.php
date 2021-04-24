@@ -85,13 +85,15 @@
 	    $data = file_get_contents($file); 
 	    $users = json_decode($data);
         try {
-            $query = $dbConn->prepare("INSERT INTO utilisateur (pseudo, mdp) VALUES (:pseudo, :mdp)");
+            $query = $dbConn->prepare("INSERT INTO utilisateur (pseudo, mdp, admin) VALUES (:pseudo, :mdp, :admin)");
             foreach($users as $user) {
                 $pseudo = strval($user->user);
                 $mdp = password_hash(strval($user->mdp),PASSWORD_DEFAULT);
+                $admin = intval($user->admin);
                 $query->execute(array(
                     'pseudo' => $pseudo,
-                    'mdp' => $mdp
+                    'mdp' => $mdp,
+                    'admin' => $admin
                 ));
             }
             
@@ -176,6 +178,20 @@
         try {
             $query = $dbConn->prepare('DELETE from panier WHERE user is null');
             $query->execute();
+        }
+        catch (Exception $error)
+        {
+            die('Erreur: ' .$error->getMessage());
+        }
+    }
+
+    function verifyAdmin($dbConn,$pseudo) {
+        try {
+            $query = $dbConn->prepare('SELECT admin FROM utilisateur WHERE pseudo LIKE :user');
+            $query->bindValue(':user', $pseudo);
+            $query->execute();
+            $res = $query->fetchall(PDO::FETCH_ASSOC);
+            return $res[0]["admin"];
         }
         catch (Exception $error)
         {

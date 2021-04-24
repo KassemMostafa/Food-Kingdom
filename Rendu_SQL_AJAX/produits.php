@@ -69,7 +69,7 @@
 										<button type="button" disabled class="btn btn-outline-light btn-sm button-cart decrease" onclick="down('<?php echo $value['alt']?>',this)">-</button>
 										<input type="num" class="num" value= "1" size="1" name="qteProduit" readonly />
 										<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
-										<button type="button"  <?php if ($value['stock'] == 0) { echo 'disabled ';} ?>class="btn btn-outline-light btn-sm button-add-cart  " onclick="stockUpdate('<?php echo $value['alt']?>')"> Ajouter au panier</button>
+										<button type="button"  <?php if ($value['stock'] <= 0) { echo 'disabled ';} ?>class="btn btn-outline-light btn-sm button-add-cart  " onclick="stockUpdate('<?php echo $value['alt']?>')"> Ajouter au panier</button>
 									
 								</div>
 							</div>
@@ -79,7 +79,11 @@
 				
 			</div>
 		</div>
-		<button type="button" class="btn btn-dark button-stock" value="stock-cache" id="stock-button" onclick="affichageStock(this.id)">Afficher Stock</button>
+
+		<button type="button" class="btn btn-dark button-stock" value="stock-cache" id="stock-button" <?php if (!isset($_SESSION["admin"])) {
+			echo "style='display:none;'";
+		}
+		?> onclick="affichageStock(this.id)">Afficher Stock</button>
 	</aside>
 </div>
 	<!-- Pied de page -->
