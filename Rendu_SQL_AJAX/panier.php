@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+	<script src="js\script.js"></script>
 </head>
 <!-- Entete Navbar non affiché sur les petites écrans due au manque du javascript, erreur à réparer lors du deuxième rendu-->
 <header>
@@ -42,34 +43,46 @@
 					} else {
 						$user = NULL;
 					} 
-					//TODO 1- add + and - buttons to modify cart in database, 
+					
+					//TODO 
+					//
+					//1- add + and - buttons to modify cart in database,done 
 					// 2- add supprimer button to delete a product from shopping cart
 					// 3- on first session start delete NULL user panier 
 					// 4- on disconnect, unset user variable
 					// 5- Ajax
 					$cart = fetchShoppingCart($bdd, $user);
+					
 					$sum=0;
 					foreach ($cart as $key => $value){
+						$stock = (int)fetchStockQuantity($bdd, $value["nomProduit"]); 
 					?>
-					<form method="POST" action="php/modifyCart.php" enctype="multipart/form-data">
+					<form method="POST"  action="php/modifyCart.php" enctype="multipart/form-data">
 						<input name= "username" type= "hidden" value="<?php 
-						if (isset($user)) {
-							echo 0;
+						if (is_null($user)) {
+							echo "0";
 						} else {
-							echo $user;
-						} ?>
-						">
-						<input name = "nomProduit" type= "hidden" value= "<?php echo $value["nomProduit"]?>">
+							echo ($user);
+						}?>">
+			
+						<input name = "nomProduit" type= "hidden" value= "<?php echo $value["nomProduit"]?>"><br>
 						
 						<tr>
 						<td><?php echo $value['nomProduit'] ?></td>
-						<td> <input type="num" class="num" value= "<?php echo $value['qte'] ?>" size="1" name="qteProduit"/>
+						<td> <button type="button" id= "panierID<?php echo $value["nomProduit"] . "decrease";?>" class="btn btn-outline-dark btn-sm button-cart decrease" onclick="downPanier('<?php echo $value['nomProduit']?>')">-</button>
+							<input  type="text" name="quantity" readonly id= "panierID<?php echo $value["nomProduit"];?>" class="num"  value= "<?php echo $value['qte'] ?>" size="1" >
+							<button type="button" id= "panierID<?php echo $value["nomProduit"] . "increase";?>" class="btn btn-outline-dark btn-sm button-cart increase " onclick="upPanier(<?php echo $stock;?>,'<?php echo $value['nomProduit']?>') ">+</button>
+							<button type="submit" name = "action" value="modifier"   <?php if ($stock == 0) { echo 'disabled';} ?>class="btn btn-outline-dark btn-sm button-panier  " style="margin-bottom : 5px;"> Modifier</button>
+							<button type="submit" name = "action" value="supprimer"   <?php if ($stock == 0) { echo 'disabled';} ?>class="btn btn-outline-danger btn-sm button-panier  " style="margin-bottom : 5px;"> Supprimer</button>
 						</td>
 						<td><?php echo $value['prix'] ?> </td>
-						<td><?php echo $value['qte']*$value['prix'] ?></td>
+
+						<td> <?php echo $value['qte']*$value['prix'] ?></td>
 						<?php $sum=$sum+($value['qte']*$value['prix']);?>
 						<br/>
 						</tr>
+						</div>
+					</form>
 				<?php } ?>
 					<tr>
 					<td></td>

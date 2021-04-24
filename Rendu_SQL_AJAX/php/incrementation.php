@@ -14,7 +14,7 @@
 	if (isset($_SESSION["userConnect"])) {
 		$user = $_SESSION["userConnect"];
 	} else {
-		$user = NULL;
+		$user = null;
 	} 
 	
 	//premier truc, vérifier que le produit ajouté n'est pas déjà lié dans la base;

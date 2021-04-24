@@ -160,8 +160,11 @@
 
     function fetchStockQuantity($dbConn, $productID) {
         try {
-            $query = $dbConn->prepare('SELECT stock FROM produit WHERE alt = :alt');
-            $query->bindValue(':alt', $productID);
+            $query = $dbConn->prepare('SELECT stock FROM produit WHERE nom = :nom');
+            $query->bindValue(':nom', $productID);
+            $query->execute();
+            $res = $query->fetchall(PDO::FETCH_ASSOC);
+            return $res[0]['stock'];
         }
         catch (Exception $error)
         {
@@ -169,5 +172,6 @@
         }
     }
     
+
 
 ?>

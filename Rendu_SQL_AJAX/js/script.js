@@ -50,3 +50,33 @@ function down(divID,button) {
     }
 }
 
+function upPanier(max, productID) {
+    let input = document.getElementById("panierID" + productID);
+    let increase = document.getElementById("panierID" + productID + "increase");
+    let decrease = document.getElementById("panierID" + productID + "decrease");
+    
+    if (decrease.disabled = true) {
+        decrease.disabled = false;
+    }
+    if (input.value == max) {
+        increase.disabled = true;
+    } else {
+        input.value = parseInt(input.value) + 1;
+    }
+}
+
+function downPanier(productID) {
+    let input = document.getElementById("panierID" + productID);
+    let increase = document.getElementById("panierID" + productID + "increase");
+    let decrease = document.getElementById("panierID" + productID + "decrease");
+    
+    if (increase.disabled = true) {
+        increase.disabled = false;
+    }
+    if (input.value == 1) {
+        decrease.disabled = true;
+    } else {
+        input.value = parseInt(input.value) - 1;
+    }
+}
+

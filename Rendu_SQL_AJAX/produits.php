@@ -69,7 +69,7 @@
 										<button type="button" disabled class="btn btn-outline-light btn-sm button-cart decrease" onclick="down('<?php echo $value['alt']?>',this)">-</button>
 										<input type="num" class="num" value= "1" size="1" name="qteProduit" readonly />
 										<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
-										<button type="submit" class="btn btn-outline-light btn-sm button-add-cart  "> Ajouter au panier</button>
+										<button type="submit"  <?php if ($value['stock'] == 0) { echo 'disabled';} ?>class="btn btn-outline-light btn-sm button-add-cart  "> Ajouter au panier</button>
 									
 								</div>
 							</div>
