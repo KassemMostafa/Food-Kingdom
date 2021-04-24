@@ -10,5 +10,9 @@
 }, {
   "user" : "Paul",
   "mdp" :  "aaa"
+}, {
+  "user" : "admin",
+  "mdp" : "admin",
+  "admin" : 1
 }
 ]

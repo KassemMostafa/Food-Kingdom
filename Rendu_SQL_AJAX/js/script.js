@@ -53,18 +53,30 @@ function down(divID,button) {
 function stockUpdate(divID) {
 
     let XMLHR = new XMLHttpRequest();
-    let x = document.querySelector("#" + divID);
+    var x = document.querySelector("#" + divID);
     let input = x.getElementsByClassName("num")[0];
-    let stock = x.getElementsByClassName("stock-quantity")[0];
     let nom = input.closest("form").children[0].children[2].value;
-
+    let inputValue = input.value
+    let prix = input.closest("form").children[0].children[4].value;
+    let alt = input.closest("form").children[0].children[1].value;
+    console.log(x);
+    console.log(input);
+    console.log(nom);
+    console.log(inputValue);
+    console.log(alt);
+    console.log(prix);
+    console.log(input.closest("form"));
     XMLHR.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+
             x.getElementsByClassName("stock-quantity")[0].innerHTML = this.responseText;
+            console.log(this.responseText);
         }
     }
-        XMLHR.open("GET", "/php/modifyStock.php?nomProduit=" + nom +"&stock=" + stock,true);
-        XMLHR.send();
+    
+        XMLHR.open("POST", "/php/addPanier.php",true);
+        XMLHR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        XMLHR.send("nomProduit=" + nom +"&qte=" + inputValue +"&prix=" + prix + "&alt=" + alt);
 }      
 
 function upPanier(max, productID) {

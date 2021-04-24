@@ -6,16 +6,16 @@
 
 
 
-	$produit = isset($_POST["produit"]) ? htmlspecialchars($_POST["produit"]) : NULL;
+	$nomProduit = isset($_POST["nomProduit"]) ? htmlspecialchars($_POST["nomProduit"]) : NULL;
 	$alt = isset($_POST["alt"]) ? htmlspecialchars($_POST["alt"]) : NULL;
-	$qte = isset($_POST['qteProduit']) ? htmlspecialchars($_POST['qteProduit']) : NULL;
+	$qte = isset($_POST['qte']) ? htmlspecialchars($_POST['qte']) : NULL;
 	$prix = isset($_POST['prix']) ? htmlspecialchars($_POST['prix']) : NULL;
-	
 	if (isset($_SESSION["userConnect"])) {
 		$user = $_SESSION["userConnect"];
 	} else {
 		$user = null;
 	} 
+	
 	
 	//premier truc, vérifier que le produit ajouté n'est pas déjà lié dans la base;
 
@@ -27,7 +27,7 @@
 			$verif = $bdd->prepare("SELECT * FROM panier WHERE user like :user AND nomProduit LIKE :nomProduit");
 			$verif->bindValue(':user', $user);
 		}
-		$verif->bindValue(':nomProduit', $produit);
+		$verif->bindValue(':nomProduit', $nomProduit);
 		$verif->execute();
 		$res = $verif->fetchall(PDO::FETCH_ASSOC);
 		var_dump($res);
@@ -36,7 +36,7 @@
 			$query = $bdd->prepare("INSERT INTO panier (user, nomProduit, prix, qte) VALUES (:user, :nomProduit, :prix, :qte)");
 			$query->execute(array(
 				'user' => $user,
-				'nomProduit' => $produit,
+				'nomProduit' => $nomProduit,
 				'prix' => $prix,
 				'qte' => $qte));
 		} else {
@@ -51,7 +51,7 @@
 				$query->bindValue(':user', $user);
 			}
 			$query->bindValue(':qte', $qte);
-			$query->bindValue(':nomProduit', $produit);
+			$query->bindValue(':nomProduit', $nomProduit);
 			$res = $query->execute();
 			if ($res === false) {
 				var_dump($query->errorInfo());

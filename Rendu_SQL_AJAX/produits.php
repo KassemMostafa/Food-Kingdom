@@ -56,19 +56,20 @@
 								<input name="alt" type="hidden" value="<?php echo $value["alt"]?>">
 								<input name="produit" type="hidden" value="<?php echo $value["nom"]?>">
 								<input name= "pageName" type= "hidden" value="<?php echo $_GET['cat']?>">
+								<input name= "prix" type= "hidden" value="<?php echo $value["prix"]?>">
 								<div class="card-body">
 									<h5 class="card-title"><?php echo $value["nom"] ?> </h5>
 									<p class="card-text"> <?php echo $value["description"] ?></p>
 								</div>
 								<div class="card-body">
 									
-										<p> <?php echo $value["prix"]?>€<span class= "stock">Stock : <span class ="stock-quantity"><?php echo $value['stock'] ?></span></span></p>
+										<p> <span class="prix"><?php echo $value["prix"]?></span>€<span class= "stock">Stock : <span class ="stock-quantity"><?php echo $value['stock'] ?></span></span></p>
 										<input name="prix" type="hidden" value="<?php echo $value["prix"]?>">
 										<p> Quantité : </p>	
 										<button type="button" disabled class="btn btn-outline-light btn-sm button-cart decrease" onclick="down('<?php echo $value['alt']?>',this)">-</button>
 										<input type="num" class="num" value= "1" size="1" name="qteProduit" readonly />
 										<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
-										<button type="submit"  <?php if ($value['stock'] == 0) { echo 'disabled';} ?>class="btn btn-outline-light btn-sm button-add-cart  " onclick="stockUpdate('<?php echo $value['alt']?>')"> Ajouter au panier</button>
+										<button type="button"  <?php if ($value['stock'] == 0) { echo 'disabled ';} ?>class="btn btn-outline-light btn-sm button-add-cart  " onclick="stockUpdate('<?php echo $value['alt']?>')"> Ajouter au panier</button>
 									
 								</div>
 							</div>
