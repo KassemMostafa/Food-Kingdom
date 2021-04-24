@@ -56,6 +56,7 @@
 								<img src = "<?php echo $value['image']?>" class = "card-img-top zoom" alt = "<?php echo $value["alt"] ?>">
 								<input name="alt" type="hidden" value="<?php echo $value["alt"]?>">
 								<input name="produit" type="hidden" value="<?php echo $value["nom"]?>">
+								<input name= "pageName" type= "hidden" value="<?php echo $_GET['cat']?>">
 								<div class="card-body">
 									<h5 class="card-title"><?php echo $value["nom"] ?> </h5>
 									<p class="card-text"> <?php echo $value["description"] ?></p>
@@ -66,7 +67,7 @@
 										<input name="prix" type="hidden" value="<?php echo $value["prix"]?>">
 										<p> Quantité : </p>	
 										<button type="button" disabled class="btn btn-outline-light btn-sm button-cart decrease" onclick="down('<?php echo $value['alt']?>',this)">-</button>
-										<input type="text" class="num" value= "1" size="1" name="qteProduit" readonly />
+										<input type="num" class="num" value= "1" size="1" name="qteProduit" readonly />
 										<button type="button" class="btn btn-outline-light btn-sm button-cart increase" onclick="up('<?php echo $value['alt']?>',this)">+</button><br>
 										<button type="submit" class="btn btn-outline-light btn-sm button-add-cart  "> Ajouter au panier</button>
 									

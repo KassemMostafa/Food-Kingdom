@@ -62,6 +62,24 @@
 
     }
 
+    function UserTableIsEmpty($dbConn) {
+        try {
+            $verif = $dbConn->prepare("SELECT * FROM utilisateur");
+            $verif->execute();
+            $res = $verif->fetchall();
+            if (count($res) == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch (Exception $error)
+        { 
+                die('Erreur : ' . $error->getMessage());
+        }
+    
+    }
+
     function insertUsers($dbConn) {
         $file = 'php\utilisateur.json'; 
 	    $data = file_get_contents($file); 
@@ -133,6 +151,17 @@
             }
             $res = $query->fetchall(PDO::FETCH_ASSOC);
             return $res;
+        }
+        catch (Exception $error)
+        {
+            die('Erreur: ' .$error->getMessage());
+        }
+    }
+
+    function fetchStockQuantity($dbConn, $productID) {
+        try {
+            $query = $dbConn->prepare('SELECT stock FROM produit WHERE alt = :alt');
+            $query->bindValue(':alt', $productID);
         }
         catch (Exception $error)
         {

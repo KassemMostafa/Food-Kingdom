@@ -24,11 +24,14 @@
     $currentpage = "index";
     include("php/header.php"); 
     include("bdd\bdd.php");
-    if (!isset($_SESSION["firstConnection"])) {
+    if (isset($_SESSION["firstConnection"])) {
       $_SESSION["firstConnection"] = TRUE;
       $bdd = connexion();
       insertionProduitsDB($bdd);
-      insertUsers($bdd);
+      if (UserTableIsEmpty($bdd)) {
+        insertUsers($bdd);
+      }
+      
       $bdd = deconnexion();
       
     }

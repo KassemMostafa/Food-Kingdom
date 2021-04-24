@@ -48,6 +48,7 @@
 				var_dump($query->errorInfo());
 			} 
 		}
+		header("location: /produits.php?cat=".$_POST["pageName"]); 
 	}
 	catch (Exception $error)
 	{

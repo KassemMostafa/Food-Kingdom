@@ -27,8 +27,10 @@ CREATE TABLE IF NOT EXISTS panier(
 			id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 			user VARCHAR (255) DEFAULT NULL,
 			nomProduit VARCHAR(255),
+			idProduit VARCHAR(255),
 			prix INT,
 			qte INT,
-			FOREIGN KEY fk_utilisateur(user) REFERENCES utilisateur(pseudo)
+			FOREIGN KEY fk_utilisateur(user) REFERENCES utilisateur(pseudo),
+			FOREIGN KEY fk_produit(idProduit) REFERENCES produit(alt)
 			);
 
