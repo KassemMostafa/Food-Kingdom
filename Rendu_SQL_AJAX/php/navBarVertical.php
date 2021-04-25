@@ -10,6 +10,7 @@
             <li><a href="produits.php?cat=poulet">Poulet</a></li>
             <li><a href="produits.php?cat=pizza">Pizza</a></li>
         </ul>
-        <p /><a href="contact.php">Contact</a></p>
+        <p><a href="contact.php">Contact</a></p>
+        <p><a href="panier.php">Panier</a></p>
     </section>
 </div>
