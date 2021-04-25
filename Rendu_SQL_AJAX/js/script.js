@@ -59,13 +59,7 @@ function stockUpdate(divID) {
     let inputValue = input.value
     let prix = input.closest("form").children[0].children[4].value;
     let alt = input.closest("form").children[0].children[1].value;
-    console.log(x);
-    console.log(input);
-    console.log(nom);
-    console.log(inputValue);
-    console.log(alt);
-    console.log(prix);
-    console.log(input.closest("form"));
+
     XMLHR.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 

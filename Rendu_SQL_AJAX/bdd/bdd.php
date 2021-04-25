@@ -47,7 +47,7 @@
                         'prix' => strval($produit->prix),
                         'stock' => strval($produit->stock), 
                         'image' => strval($produit->image)));
-                        $sqlText = "INSERT INTO produit (alt, nom,categories,description,prix,stock,image) VALUES('".strval($produit->alt)."','".strval($produit->nom)."','".$nomCategorie."','".strval($produit->description)."','".strval($produit->prix)."',".strval($produit->stock).",'".strval($produit->image)."');\n";
+                        $sqlText = "INSERT INTO produit (alt, nom,categorie,description,prix,stock,image) VALUES('".strval($produit->alt)."','".strval($produit->nom)."','".$nomCategorie."','".strval($produit->description)."','".strval($produit->prix)."',".strval($produit->stock).",'".strval($produit->image)."');\n";
                         fwrite($fsql, $sqlText);
                     }
                 }

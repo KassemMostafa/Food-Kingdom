@@ -62,21 +62,21 @@
 							echo ($user);
 						}?>">
 			
-						<input name = "nomProduit" type= "hidden" value= "<?php echo $value["nomProduit"]?>"><br>
+						<input name = "nomProduit" type= "hidden" value= "<?php echo $value["nomProduit"]?>">
 						
 						<tr>
 						<td><?php echo $value['nomProduit'] ?></td>
 						<td> <button type="button" id= "panierID<?php echo $value["nomProduit"] . "decrease";?>" class="btn btn-outline-dark btn-sm button-cart decrease" onclick="downPanier('<?php echo $value['nomProduit']?>')">-</button>
 							<input  type="text" name="quantity" readonly id= "panierID<?php echo $value["nomProduit"];?>" class="num"  value= "<?php echo $value['qte'] ?>" size="1" >
 							<button type="button" id= "panierID<?php echo $value["nomProduit"] . "increase";?>" class="btn btn-outline-dark btn-sm button-cart increase " onclick="upPanier(<?php echo $stock;?>,'<?php echo $value['nomProduit']?>') ">+</button>
-							<button type="submit" name = "action" value="modifier"   <?php if ($stock == 0) { echo 'disabled ';} ?>class="btn btn-outline-dark btn-sm button-panier  " style="margin-bottom : 5px;"> Modifier</button>
-							<button type="submit" name = "action" value="supprimer"   <?php if ($stock == 0) { echo 'disabled ';} ?>class="btn btn-outline-danger btn-sm button-panier  " style="margin-bottom : 5px;"> Supprimer</button>
+							<button type="submit" name = "action" value="modifier"   class="btn btn-outline-dark btn-sm button-panier  " style="margin-bottom : 5px;"> Modifier</button>
+							<button type="submit" name = "action" value="supprimer" class="btn btn-outline-danger btn-sm button-panier  " style="margin-bottom : 5px;"> Supprimer</button>
 						</td>
 						<td><?php echo $value['prix'] ?> </td>
 
 						<td> <?php echo $value['qte']*$value['prix'] ?></td>
 						<?php $sum=$sum+($value['qte']*$value['prix']);?>
-						<br/>
+						
 						</tr>
 						</div>
 					</form>
