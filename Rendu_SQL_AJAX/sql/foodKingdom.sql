@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS produit (
 			);
 
 CREATE TABLE IF NOT EXISTS utilisateur(
-			pseudo VARCHAR (128) PRIMARY KEY NOT NULL,
+			pseudo VARCHAR (191) PRIMARY KEY NOT NULL,
 			mdp VARCHAR (128) NOT NULL,
 			admin BOOLEAN Default 0
 			);
